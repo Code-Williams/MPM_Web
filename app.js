@@ -16,8 +16,22 @@ MongoClient.connect(config.base.db_url, async (err, client) => {
 
   const db = client.db("Mpm-main");
   console.log(`Connected to DataBase`);
-  const pageInformation = db.collection("pageInformation").find({}).toArray();
-  console.log(pageInformation);
+  await db.collection("pageInformation").insertOne({
+    top: {
+      itemOne: {
+        title: "دریافت خدمات",
+        description: "توضیحات در مورد دریافت خدمات",
+      },
+      itemTwo: {
+        title: "فروشگاه",
+        description: "توضیحات در مورد فروشگاه",
+      },
+    },
+  });
+  const pageInformation = await db
+    .collection("pageInformation")
+    .find({})
+    .toArray();
 
   app.get("/", (req, res) => {
     res.render("index", { pageInformation });

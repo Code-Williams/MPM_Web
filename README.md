@@ -5,6 +5,7 @@
 - [ ] Add all informations to db (Address, Phone Number and...)
 - [ ] Optimize loading time
 - [ ] Optimize pictures
+- [ ] Fix DataBase getting (get database information in every request)
 
 ## index.html
 

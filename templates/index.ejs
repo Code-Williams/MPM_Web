@@ -176,16 +176,20 @@
                       class="top-list-image"
                     />
 
-                    <h1 class="top-list-title"><%=pageInformation.top%></h1>
+                    <h1 class="top-list-title">
+                      <%= pageInformation[0].top.itemOne.title %>
+                    </h1>
 
                     <p class="top-list-description">
-                      توضیحات درباره دریافت خدمات
+                      <%= pageInformation[0].top.itemOne.description %>
                     </p>
                   </div>
 
                   <div class="top-list-item-bottom">
                     <div class="hero-btns">
-                      <a href="contact.html" class="boxed-btn">دریافت خدمات</a>
+                      <a href="contact.html" class="boxed-btn"
+                        ><%= pageInformation[0].top.itemOne.title %></a
+                      >
                     </div>
                   </div>
                 </li>
@@ -198,9 +202,13 @@
                       class="top-list-image"
                     />
 
-                    <h1 class="top-list-title">فروشگاه</h1>
+                    <h1 class="top-list-title">
+                      <%= pageInformation[0].top.itemTwo.title %>
+                    </h1>
 
-                    <p class="top-list-description">توضیحات درباره فروشگاه</p>
+                    <p class="top-list-description">
+                      <%= pageInformation[0].top.itemTwo.description %>
+                    </p>
                   </div>
 
                   <div class="top-list-item-bottom">
