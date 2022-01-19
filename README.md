@@ -4,6 +4,7 @@
 - [x] Remove background for scroll
 - [ ] Add all informations to db (Address, Phone Number and...)
 - [ ] Optimize loading time
+- [ ] Optimize pictures
 
 ## index.html
 
