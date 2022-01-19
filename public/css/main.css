@@ -285,6 +285,7 @@ p:last-child {
   z-index: 1111;
   background: #fff;
   overflow-x: hidden;
+  opacity: 0.7;
 }
 
 .loader-inner {
