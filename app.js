@@ -23,6 +23,10 @@ app.set("views", __dirname + "/templates");
 app.use(express.static(__dirname + "/public")); //__dir and not _dir
 app.set("view engine", "ejs");
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 app.get("/", (req, res) => {
   res.render("index");
 });
