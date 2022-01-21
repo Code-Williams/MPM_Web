@@ -1,9 +1,21 @@
 const express = require("express");
-const { MongoClient } = require("mongodb");
+const mysql = require("mysql");
 const config = require("./config.json");
 const bodyParser = require("body-parser");
 
 const app = express();
+
+const conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "shayanwilliams",
+  database: "mpm",
+});
+
+conn.connect((err, res) => {
+  if (err) throw err;
+  console.log("Connected to DataBase");
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,20 +23,8 @@ app.set("views", __dirname + "/templates");
 app.use(express.static(__dirname + "/public")); //__dir and not _dir
 app.set("view engine", "ejs");
 
-MongoClient.connect(config.base.db_url, async (err, client) => {
-  if (err) throw err;
-
-  const db = client.db("Mpm-main");
-  console.log(`Connected to DataBase`);
-
-  const pageInformation = await db
-    .collection("pageInformation")
-    .find({})
-    .toArray();
-
-  app.get("/", (req, res) => {
-    res.render("index", { pageInformation });
-  });
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 app.listen(config.base.port, () => {
