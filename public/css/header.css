@@ -1,3 +1,18 @@
+.sign-items {
+  margin: 10px !important;
+  padding: 0 !important;
+  float: right;
+}
+
+.whiteText {
+  color: white;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
 ul.navbar-nav li.nav-item a.nav-link,
 ul.navbar-nav li.nav-item.active a.nav-link {
   color: #051922;
