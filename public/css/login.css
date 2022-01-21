@@ -1,0 +1,17 @@
+.sign-inputs {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #f28123;
+  outline: none;
+  transition: border 0.1s ease-in-out;
+}
+
+.sign-inputs::placeholder {
+  color: #af8563;
+}
+
+.sign-inputs:focus {
+  border: 2px solid #f28123;
+}

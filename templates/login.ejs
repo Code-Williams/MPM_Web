@@ -39,14 +39,6 @@
     <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
-    <!--PreLoader-->
-    <div class="loader">
-      <div class="loader-inner">
-        <div class="circle"></div>
-      </div>
-    </div>
-    <!--PreLoader Ends-->
-
     <!-- header -->
     <%- include('./sides/header.ejs') %>
 
@@ -54,12 +46,8 @@
     <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
-          <!-- <div class="col-lg-9 offset-lg-2 text-center"> -->
           <div class="hero-text">
             <div class="hero-text-tablecell">
-              <!-- <p class="subtitle">فروشگاه جامع قطعات الکترونیک، مکانیک، مواد و خدمات ساخت دیجیتال</p> -->
-              <!-- <h1>Mr Part Maker</h1> -->
-
               <ul class="top-list">
                 <li class="top-list-item top-list-item-left">
                   <div class="top-list-item-top">
@@ -70,6 +58,17 @@
                     />
 
                     <h1 class="top-list-title">ورود</h1>
+
+                    <input
+                      type="text"
+                      placeholder="نام کاربری"
+                      class="sign-inputs"
+                    />
+                    <input
+                      type="password"
+                      placeholder="رمز عبور"
+                      class="sign-inputs"
+                    />
                   </div>
 
                   <div class="top-list-item-bottom">
@@ -79,13 +78,8 @@
                   </div>
                 </li>
               </ul>
-              <!-- <div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">دریافت خدمات</a>
-								<a href="contact.html" class="bordered-btn">فروشگاه</a>
-							</div> -->
             </div>
           </div>
-          <!-- </div> -->
         </div>
       </div>
     </div>
