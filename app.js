@@ -27,6 +27,10 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/dashboard", (req, res) => {
+  res.render("user_interface");
+});
+
 app.get("/", (req, res) => {
   res.render("index");
 });

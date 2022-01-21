@@ -1,0 +1,108 @@
+body {
+  background-color: #fafafa;
+}
+
+.menu-right {
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid rgb(226, 226, 226);
+  float: right;
+  width: 250px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.profile-image-menu-handler {
+  width: 60px;
+  float: right;
+}
+
+.profile-image-menu {
+  width: 50px;
+  float: right;
+}
+
+.profile-left {
+  width: 70%;
+  float: left;
+}
+
+#menu-username {
+  float: right;
+  text-align: right;
+  font-size: 17px;
+  margin: 0;
+}
+
+#menu-number {
+  float: right;
+  text-align: right;
+  color: gray;
+  font-size: 11px;
+}
+
+.sub-menu-profile {
+  float: right;
+  width: 100%;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+}
+
+.sub-menu-profile:first-child {
+  margin-top: 30px;
+}
+
+.sub-menu-profile-name {
+  float: right;
+}
+
+.sub-menu-profile-value {
+  float: left;
+}
+
+.increment-total:hover {
+  color: #00bfd6;
+}
+
+.increment-total {
+  color: #00bfd6;
+  float: right;
+  font-size: 13px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.menu-right-profile {
+  height: 190px;
+}
+
+.menu-right-image {
+  float: right;
+}
+
+.menu-right-name {
+  float: right;
+}
+
+.menu-right-subItem {
+  width: 100%;
+  height: 40px;
+  float: right;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.menu-right-subItem:hover {
+  background-color: #fafafa;
+  border-radius: 7px;
+}
+
+.menu-right-items {
+  width: 100%;
+  min-height: 100px;
+  padding: 0;
+}
