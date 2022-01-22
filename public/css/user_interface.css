@@ -106,3 +106,23 @@ body {
   min-height: 100px;
   padding: 0;
 }
+
+.menuTopInfo {
+  width: 30%;
+  height: 200px;
+  margin: 10px;
+}
+
+.menuTopInfo-right {
+  float: right;
+}
+
+.menuTopInfo-left {
+  float: left;
+}
+
+.menuTopInfo-title {
+  float: right;
+  direction: rtl;
+  text-align: right;
+}
