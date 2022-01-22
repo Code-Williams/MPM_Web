@@ -43,6 +43,11 @@ input:focus {
 
 .forgot a {
   margin-right: 10px;
+  color: #f28123;
+}
+
+.forgot a:hover {
+  color: rgb(138, 192, 241);
 }
 
 .top-list-item-bottom {
