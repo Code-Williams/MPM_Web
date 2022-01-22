@@ -36,10 +36,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/*", (req, res) => {
-  res.statusCode("404");
-});
-
 app.listen(config.base.port, () => {
   console.log(`Server is running on ${config.base.port}`);
 });
