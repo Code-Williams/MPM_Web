@@ -108,13 +108,13 @@ body {
 }
 
 .menuTopInfo {
-  width: 30%;
-  height: 200px;
+  width: 35%;
   margin: 10px;
 }
 
 .menuTopInfo-right {
   float: right;
+  width: 43%;
 }
 
 .menuTopInfo-left {
@@ -125,4 +125,63 @@ body {
   float: right;
   direction: rtl;
   text-align: right;
+  font-size: 25px;
+  color: gray;
+}
+
+.menuTopInfo-sub {
+  background-color: white;
+  border-radius: 7px;
+  margin: 10px;
+  padding: 2px;
+  margin-top: 60px;
+  height: 350px;
+  border: 1px solid rgb(218, 214, 214);
+}
+
+.informations {
+  width: 100%;
+  height: 100%;
+  padding-left: 0;
+}
+
+.subInformations {
+  float: right;
+  padding: 20px;
+  border-left: 1px solid rgb(218, 214, 214);
+  border-bottom: 1px solid rgb(218, 214, 214);
+  width: 50%;
+  height: 27%;
+}
+
+.informations-name {
+  color: #bababa;
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+}
+
+.informations-value {
+  font-size: 1.357rem;
+  direction: rtl;
+  text-align: right;
+  color: #939393;
+}
+
+.no-border-left {
+  border-left: none !important;
+}
+
+.editInformation {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editInformation-text {
+  color: skyblue;
+  cursor: pointer;
+  border-bottom: 1px dashed skyblue;
 }
