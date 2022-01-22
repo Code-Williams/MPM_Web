@@ -29,7 +29,7 @@ app.use("/register", registerRouter);
 const loginRouter = require("./routes/loginRouter");
 app.use("/login", loginRouter);
 
-const dashboardRouter = require("./routes/dashboard");
+const dashboardRouter = require("./routes/dashboardRouter");
 app.use("/dashboard", dashboardRouter);
 
 app.get("/", (req, res) => {
