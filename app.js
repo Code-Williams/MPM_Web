@@ -23,16 +23,21 @@ app.set("views", __dirname + "/templates");
 app.use(express.static(__dirname + "/public")); //__dir and not _dir
 app.set("view engine", "ejs");
 
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+const registerRouter = require("./routes/registerRouter");
+app.use("/register", registerRouter);
 
-app.get("/dashboard", (req, res) => {
-  res.render("user_interface");
-});
+const loginRouter = require("./routes/loginRouter");
+app.use("/login", loginRouter);
+
+const dashboardRouter = require("./routes/dashboard");
+app.use("/dashboard", dashboardRouter);
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("/*", (req, res) => {
+  res.statusCode("404");
 });
 
 app.listen(config.base.port, () => {
