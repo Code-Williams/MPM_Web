@@ -1,0 +1,36 @@
+.top-list-item-top {
+  display: block !important;
+}
+
+.top-list-title {
+  direction: rtl;
+  text-align: right;
+  margin-right: 20px;
+}
+
+input {
+  float: right;
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #f28123;
+  outline: none;
+  transition: border 0.1s ease-in-out;
+}
+
+input::placeholder {
+  color: #af8563;
+}
+
+input:focus {
+  border: 2px solid #f28123;
+}
+
+.register-panel {
+  width: 80%;
+}
+
+.password {
+  width: 40%;
+}
