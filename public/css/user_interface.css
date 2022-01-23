@@ -185,3 +185,45 @@ body {
   cursor: pointer;
   border-bottom: 1px dashed skyblue;
 }
+
+.information-address-text {
+  font-size: 14px;
+  float: right;
+}
+
+.information-address {
+  padding: 7px;
+  margin: 5px;
+  border-bottom: 1px solid rgb(206, 204, 204);
+  height: 50px;
+  width: 95%;
+}
+
+.informations-address {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.dotted-btn {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+}
+
+.dotted-btn span {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 10px;
+  line-height: 6px;
+}
+
+.dotted-btn span::after {
+  content: ".";
+}
