@@ -1,6 +1,0 @@
-{
-  "base": {
-    "port": 80,
-    "db_url": "mongodb+srv://willi:williamsca@mpmwebsite.mhmai.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true"
-  }
-}
