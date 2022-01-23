@@ -6,10 +6,10 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "shayanwilliams",
-  database: "mpm",
+  host: config.database.host,
+  user: config.database.user,
+  password: config.database.password,
+  database: config.database.name,
 });
 
 conn.connect((err, res) => {
@@ -36,6 +36,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.listen(config.base.port, () => {
+app.listen(config.app.port, () => {
   console.log(`Server is running on ${config.base.port}`);
 });
