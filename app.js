@@ -37,5 +37,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(config.app.port, () => {
-  console.log(`Server is running on ${config.base.port}`);
+  console.log(`Server is running on ${config.app.port}`);
 });
