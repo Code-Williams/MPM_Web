@@ -5,12 +5,17 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const conn = mysql.createConnection({
+const dbOptions = {
   host: config.database.host,
   user: config.database.user,
   password: config.database.password,
-  database: config.database.name,
-});
+}
+
+if(config.database.name && config.database.name !== ""){
+    dbOptions['name'] = config.database.name
+}
+
+const conn = mysql.createConnection(dbOptions);
 
 conn.connect((err, res) => {
   if (err) throw err;
