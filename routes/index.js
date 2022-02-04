@@ -45,4 +45,8 @@ Router.get("/dashboard", (req, res) => {
     res.render("user_interface")
 })
 
+Router.get("/shop", (req, res) => {
+    res.render("shop")
+})
+
 module.exports = Router
