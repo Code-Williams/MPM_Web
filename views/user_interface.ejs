@@ -47,141 +47,143 @@
     <%- include('./sides/header.ejs') %>
     <div style="display: block; width: 100%; height: 130px"></div>
 
-    <!-- Right side menu -->
-    <div class="menu-right">
-      <div class="menu-right-profile">
-        <div id="menu-right-profile-top">
-          <div class="profile-image-menu-handler">
-            <img
-              src="/img/profile-image.svg"
-              alt="Default profile picture"
-              class="profile-image-menu"
-            />
+    <div class="menus">
+      <!-- Right side menu -->
+      <div class="menu-right">
+        <div class="menu-right-profile">
+          <div id="menu-right-profile-top">
+            <div class="profile-image-menu-handler">
+              <img
+                src="/img/profile-image.svg"
+                alt="Default profile picture"
+                class="profile-image-menu"
+              />
+            </div>
+            <div class="profile-left">
+              <p id="menu-username">شایان نصرآبادی</p>
+              <p id="menu-number">09103438399</p>
+            </div>
           </div>
-          <div class="profile-left">
-            <p id="menu-username">شایان نصرآبادی</p>
-            <p id="menu-number">09103438399</p>
+          <div id="menu-right-profile-bottom">
+            <ul class="menu-item-profile">
+              <li class="sub-menu-profile">
+                <p class="sub-menu-profile-name">کیف پول</p>
+                <p class="sub-menu-profile-value" id="wallet">0</p>
+              </li>
+
+              <li class="sub-menu-profile">
+                <p class="sub-menu-profile-name">امتیاز</p>
+                <p class="sub-menu-profile-value">0</p>
+              </li>
+
+              <a href="" class="increment-total">افزایش موجودی</a>
+            </ul>
           </div>
         </div>
-        <div id="menu-right-profile-bottom">
-          <ul class="menu-item-profile">
-            <li class="sub-menu-profile">
-              <p class="sub-menu-profile-name">کیف پول</p>
-              <p class="sub-menu-profile-value" id="wallet">0</p>
-            </li>
 
-            <li class="sub-menu-profile">
-              <p class="sub-menu-profile-name">امتیاز</p>
-              <p class="sub-menu-profile-value">0</p>
-            </li>
+        <hr />
 
-            <a href="" class="increment-total">افزایش موجودی</a>
-          </ul>
+        <div class="menu-right-items">
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">سفارش های من</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">لیست ها</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">نظرات</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">نشانی ها</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">پیغام ها</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">اطلاعات حساب</p>
+          </a>
+
+          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+            <img src="" alt="" class="menu-right-image" />
+            <p class="menu-right-name">خروج</p>
+          </a>
         </div>
       </div>
 
-      <hr />
+      <div id="menuTopInfo">
+        <div class="menuTopInfo-right menuTopInfo">
+          <p class="menuTopInfo-title">اطلاعات شخصی</p>
+          <div class="menuTopInfo-sub">
+            <ul class="informations">
+              <li class="subInformations">
+                <p class="informations-name">نام و نام خانوادگی:</p>
+                <p class="informations-value">شایان نصرآبادی</p>
+              </li>
 
-      <div class="menu-right-items">
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">سفارش های من</p>
-        </a>
+              <li class="subInformations no-border-left">
+                <p class="informations-name">پست الکترونیک</p>
+                <p class="informations-value">williams.ca001@gmail.com</p>
+              </li>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">لیست ها</p>
-        </a>
+              <li class="subInformations">
+                <p class="informations-name">شماره تلفن همراه</p>
+                <p class="informations-value">09103438399</p>
+              </li>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">نظرات</p>
-        </a>
+              <li class="subInformations no-border-left">
+                <p class="informations-name">کد ملی</p>
+                <p class="informations-value">1051241308</p>
+              </li>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">نشانی ها</p>
-        </a>
+              <li class="subInformations">
+                <p class="informations-name">دریافت خبرنامه</p>
+                <p class="informations-value">خیر</p>
+              </li>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">پیغام ها</p>
-        </a>
+              <li class="subInformations no-border-left">
+                <p class="informations-name">روش بازگشت وجه:</p>
+                <p class="informations-value">شماره کارت</p>
+              </li>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">اطلاعات حساب</p>
-        </a>
+              <li class="editInformation">
+                <p class="editInformation-text">ویرایش اطلاعات شخصی</p>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        <a class="menu-right-subItem" href="https://www.twitch.tv/">
-          <img src="" alt="" class="menu-right-image" />
-          <p class="menu-right-name">خروج</p>
-        </a>
-      </div>
-    </div>
+        <div class="menuTopInfo-left menuTopInfo">
+          <p class="menuTopInfo-title">آدرس ها</p>
+          <div class="menuTopInfo-sub">
+            <ul class="informations-address">
+              <li class="information-address">
+                <p class="information-address-text">
+                  استان خراسان رضوی، نیشابور،‌خیابان باهنر، باهنر جنوبی
+                </p>
 
-    <div id="menuTopInfo">
-      <div class="menuTopInfo-right menuTopInfo">
-        <p class="menuTopInfo-title">اطلاعات شخصی</p>
-        <div class="menuTopInfo-sub">
-          <ul class="informations">
-            <li class="subInformations">
-              <p class="informations-name">نام و نام خانوادگی:</p>
-              <p class="informations-value">شایان نصرآبادی</p>
-            </li>
-
-            <li class="subInformations no-border-left">
-              <p class="informations-name">پست الکترونیک</p>
-              <p class="informations-value">williams.ca001@gmail.com</p>
-            </li>
-
-            <li class="subInformations">
-              <p class="informations-name">شماره تلفن همراه</p>
-              <p class="informations-value">09103438399</p>
-            </li>
-
-            <li class="subInformations no-border-left">
-              <p class="informations-name">کد ملی</p>
-              <p class="informations-value">1051241308</p>
-            </li>
-
-            <li class="subInformations">
-              <p class="informations-name">دریافت خبرنامه</p>
-              <p class="informations-value">خیر</p>
-            </li>
-
-            <li class="subInformations no-border-left">
-              <p class="informations-name">روش بازگشت وجه:</p>
-              <p class="informations-value">شماره کارت</p>
-            </li>
-
-            <li class="editInformation">
-              <p class="editInformation-text">ویرایش اطلاعات شخصی</p>
-            </li>
-          </ul>
+                <div class="dotted-btn">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="menuTopInfo-left menuTopInfo">
-        <p class="menuTopInfo-title">آدرس ها</p>
-        <div class="menuTopInfo-sub">
-          <ul class="informations-address">
-            <li class="information-address">
-              <p class="information-address-text">
-                استان خراسان رضوی، نیشابور،‌خیابان باهنر، باهنر جنوبی
-              </p>
-
-              <div class="dotted-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+  </div>
     <%- include("./sides/footer.ejs") %>
 
     <!-- jquery -->
