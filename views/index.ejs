@@ -122,7 +122,24 @@
     <div class="list-section pt-80 pb-80">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <% homeTopItems.forEach(obj => { %>
+
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <div class="list-box d-flex align-items-center">
+              <div class="content">
+                <h3><%= obj.name %></h3>
+                <p><%= obj.description %></p>
+              </div>
+
+              <div class="list-icon">
+                <i class="fas <%= obj.icon %>"></i>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+
+          <!-- <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
             <div class="list-box d-flex align-items-center">
               <div class="content">
                 <h3>ارسال رایگان</h3>
@@ -159,7 +176,7 @@
                 <i class="fas fa-sync"></i>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -226,16 +243,20 @@
     <!-- end product section -->
 
     <!-- cart banner section -->
-    <section class="cart-banner pt-100 pb-100">
+    <% let display = "block" %>
+    <% if(offers == undefined) display = "none" %>
+
+    <section class="cart-banner pt-100 pb-100" style="display : <%=display%>">
       <div class="container">
         <div class="row clearfix">
+
           <!--Image Column-->
           <div class="image-column col-lg-6">
             <div class="image">
               <div class="price-box">
                 <div class="inner-price">
                   <span class="price">
-                    <strong>30%</strong> <br />
+                    <strong class="darsad"><%= (offers) ? offers[0].offer : 0 %></strong> <br />
                     تخفیف/عدد
                   </span>
                 </div>
@@ -246,8 +267,8 @@
           <!--Content Column-->
           <div class="content-column col-lg-6">
             <h3><span class="orange-text">تخفیف</span> ماهانه</h3>
-            <h4>اسم کالا</h4>
-            <div class="text">توضیحات در مورد کالا</div>
+            <h4><%= (offers) ? offers[0].name : "-" %></h4>
+            <div class="text"><%= (offers) ? offers[0].description : "-" %></div>
             <!--Countdown Timer-->
             <div class="time-counter">
               <div class="time-countdown clearfix" data-countdown="2020/2/01">
@@ -280,34 +301,28 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1 text-center">
             <div class="testimonial-sliders">
-              <div class="single-testimonial-slider">
-                <div class="client-avater">
-                  <img src="/img/avaters/avatar2.png" alt="" />
-                </div>
-                <div class="client-meta">
-                  <h3>نام کاربر <span>نقش کاربر</span></h3>
-                  <p class="testimonial-body">
-                    " نظر کاربر در مورد وبسایت و خدمات "
-                  </p>
-                  <div class="last-icon">
-                    <i class="fas fa-quote-right"></i>
+
+              <% if(pinnedComments && pinnedComments !== undefined){ %>
+                <% pinnedComments.forEach(comment => { %>
+
+                  <div class="single-testimonial-slider">
+                    <div class="client-avater">
+                      <img src="/img/avaters/<%=comment.icon%>" alt="" />
+                    </div>
+                    <div class="client-meta">
+                      <h3><%= comment.name %><span><%= comment.job %></span></h3>
+                      <p class="testimonial-body fa-text">
+                        " <%= comment.comment %> "
+                      </p>
+                      <div class="last-icon">
+                        <i class="fas fa-quote-right"></i>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="single-testimonial-slider">
-                <div class="client-avater">
-                  <img src="/img/avaters/avatar3.png" alt="" />
-                </div>
-                <div class="client-meta">
-                  <h3>نام کاربر <span>نقش کاربر</span></h3>
-                  <p class="testimonial-body">
-                    " نظر کاربر در مورد وبسایت و خدمات "
-                  </p>
-                  <div class="last-icon">
-                    <i class="fas fa-quote-right"></i>
-                  </div>
-                </div>
-              </div>
+
+                <% }) %>
+              <% } %>
+
             </div>
           </div>
         </div>
