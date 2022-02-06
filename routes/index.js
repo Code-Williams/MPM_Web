@@ -48,4 +48,7 @@ Router.get("/shop", (req, res) => {
     res.render("shop")
 })
 
+const errController = require("../controllers/error")
+Router.get("/*", errController)
+
 module.exports = Router
