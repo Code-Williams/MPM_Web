@@ -345,9 +345,9 @@
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="abt-text">
-              <p class="top-sub">از سال ۱۳۹۹</p>
+              <p class="top-sub">از سال <%= about.find(x => x.name == "سال شروع").description %></p>
               <h2>ما <span class="orange-text">Mr Part Maker</span> هستیم</h2>
-              <p>توضیحات در مورد تاریخچه این برند و معرفی برند</p>
+              <p> <%= about.find(x => x.name == "تاریخچه کوتاه").description %> </p>
               <a href="/about" class="boxed-btn mt-4">بیشتر بدانید</a>
             </div>
           </div>
@@ -357,21 +357,24 @@
     <!-- end advertisement section -->
 
     <!-- shop banner -->
-    <section class="shop-banner">
-      <div class="container">
-        <h3>
-          تخفیفات ماه مهر <br />
-          با یک <span class="orange-text">تخفیف</span> بزرگ
-        </h3>
-        <div class="sale-percent">
-          <span
-            >بیشتر <br />
-            از</span
-          >۵۰٪ <span>تخفیف</span>
+    <% const monthlyOffer = offers.find(x => x.name == "monthly") %>
+    <% if(monthlyOffer){ %>
+      <section class="shop-banner">
+        <div class="container">
+          <h3>
+            تخفیفات ماه مهر <br />
+            با یک <span class="orange-text">تخفیف</span> بزرگ
+          </h3>
+          <div class="sale-percent">
+            <span
+              >بیشتر <br />
+              از</span
+            ><%= monthlyOffer.offer %>٪ <span>تخفیف</span>
+          </div>
+          <a href="/shop" class="cart-btn btn-lg">همین حالا خرید کنید</a>
         </div>
-        <a href="/shop" class="cart-btn btn-lg">همین حالا خرید کنید</a>
-      </div>
-    </section>
+      </section>
+    <% } %>
     <!-- end shop banner -->
 
     <!-- latest news -->
@@ -387,90 +390,38 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-news">
-              <a href="/single-news"
-                ><div class="latest-news-bg news-bg-1"></div
-              ></a>
-              <div class="news-text-box">
-                <h3>
-                  <a href="/single-news" class="faTexts"
-                    >این موضوع خبر است</a
-                  >
-                </h3>
-                <p class="blog-meta">
-                  <span class="author"><i class="fas fa-user"></i> Admin</span>
-                  <span class="date"
-                    ><i class="fas fa-calendar"></i> 27 December, 2019</span
-                  >
-                </p>
-                <p class="excerpt">
-                  این یک خبر است! این یک خبر است! این یک خبر است! این یک خبر
-                  است! این یک خبر است! این یک خبر است! این یک خبر است! این یک
-                  خبر است! این یک خبر است! این یک خبر است!
-                </p>
-                <a href="/single-news" class="read-more-btn"
-                  >بیشتر بخوانید <i class="fas fa-angle-right"></i
-                ></a>
+
+          <% news.forEach(singleNews => { %>
+            <% if(singleNews !== null){ %>
+
+              <div class="col-lg-4 col-md-6">
+                <div class="single-latest-news">
+                  <a href="/news/<%= singleNews.id %>">
+                    <img style="width: 100%; object-fit: cover;" class="latest-news-bg" src="/img/<%= singleNews.picture %>" alt="Single News Picture <%= singleNews.picture%>">
+                  </a>
+                  <div class="news-text-box">
+                    <h3>
+                      <a href="/news/<%= singleNews.id %>" class="faTexts">
+                        <%= singleNews.title %>
+                      </a>
+                    </h3>
+                    <p class="blog-meta">
+                      <span class="author"><i class="fas fa-user"></i><%= singleNews.writer %></span>
+                      <span class="date"
+                      ><i class="fas fa-calendar"></i><%= singleNews.time %></span
+                      >
+                    </p>
+                    <p class="excerpt"><%= singleNews.description %></p>
+                    <a href="/news/<%= singleNews.id %>" class="read-more-btn"
+                      >بیشتر بخوانید <i class="fas fa-angle-right"></i
+                    ></a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-news">
-              <a href="/single-news"
-                ><div class="latest-news-bg news-bg-2"></div
-              ></a>
-              <div class="news-text-box">
-                <h3>
-                  <a href="/single-news" class="faTexts"
-                    >ٖاین موضوع خبر است</a
-                  >
-                </h3>
-                <p class="blog-meta">
-                  <span class="author"><i class="fas fa-user"></i> Admin</span>
-                  <span class="date"
-                    ><i class="fas fa-calendar"></i> 27 December, 2019</span
-                  >
-                </p>
-                <p class="excerpt">
-                  این یک خبر است! این یک خبر است! این یک خبر است! این یک خبر
-                  است! این یک خبر است! این یک خبر است! این یک خبر است!
-                </p>
-                <a href="/single-news" class="read-more-btn"
-                  >بیشتر بخوانید <i class="fas fa-angle-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-            <div class="single-latest-news">
-              <a href="/single-news"
-                ><div class="latest-news-bg news-bg-3"></div
-              ></a>
-              <div class="news-text-box">
-                <h3>
-                  <a href="/single-news" class="faTexts"
-                    >این موضوع خبر است</a
-                  >
-                </h3>
-                <p class="blog-meta">
-                  <span class="author"><i class="fas fa-user"></i> Admin</span>
-                  <span class="date"
-                    ><i class="fas fa-calendar"></i> 27 December, 2019</span
-                  >
-                </p>
-                <p class="excerpt">
-                  این یک خبر است! این یک خبر است! این یک خبر است! این یک خبر
-                  است! این یک خبر است! این یک خبر است! این یک خبر است! این یک
-                  خبر است! این یک خبر است! این یک خبر است! این یک خبر است! این
-                  یک خبر است! این یک خبر است! این یک خبر است! این یک خبر است!
-                </p>
-                <a href="/single-news" class="read-more-btn"
-                  >بیشتر بخوانید <i class="fas fa-angle-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
+
+            <%}%>
+          <% }) %>
+          
         </div>
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -509,7 +460,7 @@
     </div>
     <!-- end logo carousel -->
 
-    <%- include("./sides/footer.ejs") %>
+    <%- include("./sides/footer.ejs", {about : about}) %>
 
     <!-- jquery -->
     <script src="/js/jquery-1.11.3.min.js"></script>
