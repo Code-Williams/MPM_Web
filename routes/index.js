@@ -4,9 +4,8 @@ const Router = express.Router()
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
 
-Router.get("/about", (req, res) => {
-    res.render("about")
-})
+const AboutController = require("../controllers/about")
+Router.get("/about", AboutController)
 
 Router.get("/cart", (req, res) => [
     res.render("cart")
