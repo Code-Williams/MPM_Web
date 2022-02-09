@@ -54,25 +54,6 @@
 
     <%- include("./sides/header.ejs") %>
 
-    <!-- search area -->
-    <div class="search-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <span class="close-btn"><i class="fas fa-window-close"></i></span>
-            <div class="search-bar">
-              <div class="search-bar-tablecell">
-                <h3>Search For:</h3>
-                <input type="text" placeholder="Keywords" />
-                <button type="submit">
-                  Search <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- end search arewa -->
 
     <!-- breadcrumb-section -->
@@ -81,8 +62,8 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
             <div class="breadcrumb-text">
-              <p>Get 24/7 Support</p>
-              <h1>Contact us</h1>
+              <p>پشتیبانی ۲۴ ساعته</p>
+              <h1>با ما در ارتباط باشید</h1>
             </div>
           </div>
         </div>
@@ -96,12 +77,9 @@
         <div class="row">
           <div class="col-lg-8 mb-5 mb-lg-0">
             <div class="form-title">
-              <h2>Have you any question?</h2>
+              <h2 class="faText">سوالی دارید ؟</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, ratione! Laboriosam est, assumenda. Perferendis, quo
-                alias quaerat aliquid. Corporis ipsum minus voluptate? Dolore,
-                esse natus!
+                <%= contact.find(x => x.name == "متن").description %>
               </p>
             </div>
             <div id="form_status"></div>
@@ -115,23 +93,26 @@
                   <input type="text" placeholder="Name" name="name" id="name" />
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="ایمیل"
                     name="email"
                     id="email"
+                    required
                   />
                 </p>
                 <p>
                   <input
                     type="tel"
-                    placeholder="Phone"
+                    placeholder="تلفن"
                     name="phone"
                     id="phone"
+                    required
                   />
                   <input
                     type="text"
-                    placeholder="Subject"
+                    placeholder="موضوع"
                     name="subject"
                     id="subject"
+                    required
                   />
                 </p>
                 <p>
@@ -140,36 +121,35 @@
                     id="message"
                     cols="30"
                     rows="10"
-                    placeholder="Message"
+                    placeholder="متن"
+                    required
                   ></textarea>
                 </p>
                 <input type="hidden" name="token" value="FsWga4&@f6aw" />
-                <p><input type="submit" value="Submit" /></p>
+                <p><input type="submit" value="ارسال" /></p>
               </form>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="contact-form-wrap">
-              <div class="contact-form-box">
-                <h4><i class="fas fa-map"></i> Shop Address</h4>
+              <div class="contact-form-box" style="text-align: right;">
+                <h4><i class="fas fa-map"></i> آدرس</h4>
                 <p>
-                  34/8, East Hukupara <br />
-                  Gifirtok, Sadan. <br />
-                  Country Name
+                  <%= about.find(x => x.name == "آدرس").description %> <br />
+                  ایران
                 </p>
               </div>
-              <div class="contact-form-box">
-                <h4><i class="far fa-clock"></i> Shop Hours</h4>
+              <div class="contact-form-box" style="text-align: right;">
+                <h4><i class="far fa-clock"></i> ساعات کاری</h4>
                 <p>
-                  MON - FRIDAY: 8 to 9 PM <br />
-                  SAT - SUN: 10 to 8 PM
+                  <%= about.find(x => x.name == "ساعات کاری").description %>
                 </p>
               </div>
-              <div class="contact-form-box">
-                <h4><i class="fas fa-address-book"></i> Contact</h4>
-                <p>
-                  Phone: +00 111 222 3333 <br />
-                  Email: support@fruitkha.com
+              <div class="contact-form-box" style="text-align: right;">
+                <h4><i class="fas fa-address-book"></i> تماس با ما</h4>
+                <p class="faText">
+                  تلفن: <%= about.find(x => x.name == "تلفن").description %> <br />
+                  ایمیل: <%= about.find(x => x.name == "ایمیل").description %>
                 </p>
               </div>
             </div>
@@ -184,7 +164,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <p><i class="fas fa-map-marker-alt"></i> Find Our Location</p>
+            <p><i class="fas fa-map-marker-alt"></i> ما را در روی نقشه ببینید</p>
           </div>
         </div>
       </div>
