@@ -16,17 +16,14 @@ Router.get("/checkout", (req, res) => {
     res.render("checkout")
 })
 
-Router.get("/contact", (req, res) => {
-    res.render("contact")
-})
+const contactController = require("../controllers/contact")
+Router.get("/contact", contactController)
 
-Router.get("/login", (req, res) => [
-    res.render("login")
-])
+const loginController = require("../controllers/login")
+Router.get("/login", loginController)
 
-Router.get("/register", (req, res) => {
-    res.render("register")
-})
+const registerController = require("../controllers/register")
+Router.get("/register", registerController)
 
 Router.get("/news", (req, res) => {
     res.render("news")
@@ -44,9 +41,8 @@ Router.get("/dashboard", (req, res) => {
     res.render("user_interface")
 })
 
-Router.get("/shop", (req, res) => {
-    res.render("shop")
-})
+const ShopController = require("../controllers/shop")
+Router.get("/shop", ShopController)
 
 const errController = require("../controllers/error")
 Router.get("/*", errController)
