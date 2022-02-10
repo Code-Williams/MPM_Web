@@ -46,52 +46,70 @@
     <%- include('./sides/header.ejs') %>
 
     <!-- hero area -->
-    <div class="hero-area hero-bg">
-      <div class="container">
-        <div class="row">
-          <div class="hero-text">
-            <div class="hero-text-tablecell">
-              <ul class="top-list">
-                <li class="top-list-item top-list-item-left">
-                  <div class="top-list-item-top">
-                    <h1 class="top-list-title">ورود</h1>
+    <form action="/login" method="post" class="hero-area hero-bg">
+      <div class="hero-area hero-bg">
+        <div class="container">
+          <div class="row">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <ul class="top-list">
+                  <li class="top-list-item top-list-item-left">
+                    <div class="top-list-item-top">
 
-                    <img
-                      src="/img/login.svg"
-                      alt="Login Picture"
-                      style="float: left; width: 300px; margin-left: 40px"
-                    />
+                      
+                      <h1 class="top-list-title">ورود
+                        
+                        <% for(const key in flash){ %>
+                          
+                          <span role="alert" class="flash">
+                            <%= flash[key] %>
+                          </span>
 
-                    <input
-                      type="text"
-                      placeholder="نام کاربری / ایمیل"
-                      class="sign-inputs"
-                    />
+                        <% } %>
 
-                    <input
-                      type="password"
-                      placeholder="رمز عبور"
-                      class="sign-inputs"
-                    />
+                      </h1>
 
-                    <div class="forgot">
-                      <p>رمز عبور خود را فراموش کرده اید ؟</p>
-                      <a href="">فراموشی رمز</a>
-                    </div>
-                  </div>
+                        <img
+                          src="/img/login.svg"
+                          alt="Login Picture"
+                          style="float: left; width: 300px; margin-left: 40px"
+                        />
 
-                  <div class="top-list-item-bottom">
-                    <div class="hero-btns">
-                      <a href="contact.html" class="boxed-btn"> ورود </a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                        <input
+                          type="text"
+                          placeholder="نام کاربری / ایمیل"
+                          class="sign-inputs"
+                          name="username"
+                          required
+                        />
+
+                        <input
+                          type="password"
+                          placeholder="رمز عبور"
+                          class="sign-inputs"
+                          name="password"
+                          required
+                        />
+
+                        <div class="forgot">
+                          <p>رمز عبور خود را فراموش کرده اید ؟</p>
+                          <a href="">فراموشی رمز</a>
+                        </div>
+                      </div>
+
+                      <div class="top-list-item-bottom">
+                        <div class="hero-btns">
+                          <button href="contact.html" class="boxed-btn"> ورود </button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- end hero area -->
 
     <%- include("./sides/footer.ejs", {about}) %>

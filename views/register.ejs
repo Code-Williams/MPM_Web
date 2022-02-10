@@ -47,97 +47,102 @@
     <%- include('./sides/header.ejs') %>
 
     <!-- hero area -->
-    <div class="hero-area hero-bg">
-      <div class="container">
-        <div class="row">
-          <div class="hero-text">
-            <div class="hero-text-tablecell">
-              <ul class="top-list">
-                <li class="top-list-item top-list-item-left register-panel">
-                  <div class="top-list-item-top">
-                    <!-- <img
-                      src="/img/3d-printer.jpg"
-                      alt=""
-                      class="top-list-image"
-                    /> -->
+    <form action="/register" method="post" class="hero-area hero-bg">
+      <div class="hero-area hero-bg">
+        <div class="container">
+          <div class="row">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <ul class="top-list">
+                  <li class="top-list-item top-list-item-left register-panel">
+                    <div class="top-list-item-top">
+                      <!-- <img
+                        src="/img/3d-printer.jpg"
+                        alt=""
+                        class="top-list-image"
+                      /> -->
 
-                    <h1 class="top-list-title">ثبت نام</h1>
+                      <h1 class="top-list-title">ثبت نام</h1>
 
-                    <img
-                      src="/img/register.svg"
-                      alt="Register Picture"
-                      style="float: left; width: 300px; margin-left: 40px"
-                    />
-                    <input
-                      type="text"
-                      placeholder="نام کاربری"
-                      class="sign-inputs"
-                      required
-                    />
-
-                    <div style="width: 60%; float: right; height: 70px">
+                      <img
+                        src="/img/register.svg"
+                        alt="Register Picture"
+                        style="float: left; width: 300px; margin-left: 40px"
+                      />
                       <input
                         type="text"
-                        placeholder="نام"
-                        class="sign-inputs password"
+                        placeholder="نام کاربری"
+                        class="sign-inputs"
+                        name="username"
                         required
                       />
+
+                      <div style="width: 60%; float: right; height: 70px">
+                        <input
+                          type="text"
+                          placeholder="نام"
+                          class="sign-inputs password"
+                          name="firstName"
+                          required
+                        />
+
+                        <input
+                          type="text"
+                          name="lastName"
+                          id="lastName"
+                          class="sign-inputs password"
+                          placeholder="نام خانوداگی"
+                          required
+                        />
+                      </div>
+
+                      <div style="width: 60%; float: right; height: 70px">
+                        <input
+                          type="password"
+                          placeholder="رمز عبور"
+                          class="sign-inputs password"
+                          name="password"
+                          required
+                        />
+
+                        <input
+                          type="password"
+                          name="password-retype"
+                          class="sign-inputs password"
+                          placeholder="تکرار رمز عبور"
+                        />
+                      </div>
 
                       <input
                         type="text"
-                        name="lastName"
-                        id="lastName"
-                        class="sign-inputs password"
-                        placeholder="نام خانوداگی"
-                        required
-                      />
-                    </div>
-
-                    <div style="width: 60%; float: right; height: 70px">
-                      <input
-                        type="password"
-                        placeholder="رمز عبور"
-                        class="sign-inputs password"
+                        name="number"
+                        id="phoneNumberInput"
+                        placeholder="شماره موبایل"
                         required
                       />
 
                       <input
-                        type="password"
-                        name="password-retype"
-                        class="sign-inputs password"
-                        placeholder="تکرار رمز عبور"
+                        type="email"
+                        name="email"
+                        id="emailInput"
+                        placeholder="ایمیل"
+                        required
                       />
                     </div>
 
-                    <input
-                      type="text"
-                      name="phoneNumber"
-                      id="phoneNumberInput"
-                      placeholder="شماره موبایل"
-                      required
-                    />
-
-                    <input
-                      type="email"
-                      name="email"
-                      id="emailInput"
-                      placeholder="ایمیل"
-                      required
-                    />
-                  </div>
-
-                  <div class="top-list-item-bottom">
-                    <div class="hero-btns">
-                      <a href="contact.html" class="boxed-btn"> ثبت نام </a>
+                    <div class="top-list-item-bottom">
+                      <div class="hero-btns">
+                        <button class="boxed-btn"> ثبت نام </button>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- end hero area -->
 
     <%- include("./sides/footer.ejs", {about}) %>
