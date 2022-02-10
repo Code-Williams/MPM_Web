@@ -1,8 +1,21 @@
 const aboutMain = require("../models/About");
+const Products = require("../models/Products")
 
-const shop = async (req, res) => {
+const all = async (req, res) => {
     const about = await aboutMain.findAll();
-    res.render("shop", {about})
+    const products = await Products.findAll();
+
+    res.render("shop", {about, products})
 }
 
-module.exports = shop;
+const single = async (req, res) => {
+    const about = await aboutMain.findAll()
+    const product = await Products.findByPk(req.params.id)
+
+    res.render("single-product", {about, product})
+}
+
+module.exports = {
+    all,
+    single
+};

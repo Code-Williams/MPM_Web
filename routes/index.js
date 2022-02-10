@@ -43,7 +43,8 @@ Router.get("/dashboard", (req, res) => {
 })
 
 const ShopController = require("../controllers/shop")
-Router.get("/shop", ShopController)
+Router.get("/products/:id", ShopController.single)
+Router.get("/shop", ShopController.all)
 
 const errController = require("../controllers/error")
 Router.get("/*", errController)
