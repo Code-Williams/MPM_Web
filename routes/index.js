@@ -19,10 +19,12 @@ const contactController = require("../controllers/contact")
 Router.get("/contact", contactController)
 
 const loginController = require("../controllers/login")
-Router.get("/login", loginController)
+Router.get("/login", loginController.get)
+Router.post("/login", loginController.post)
 
 const registerController = require("../controllers/register")
-Router.get("/register", registerController)
+Router.get("/register", registerController.get)
+Router.post("/register", registerController.post)
 
 Router.get("/news", (req, res) => {
     res.render("news")
