@@ -62,7 +62,17 @@
                         class="top-list-image"
                       /> -->
 
-                      <h1 class="top-list-title">ثبت نام</h1>
+                      <h1 class="top-list-title">ثبت نام
+
+                        <% for(const key in flash){ %>
+                          
+                          <span role="alert" class="flash">
+                            <%= flash[key] %>
+                          </span>
+
+                        <% } %>
+
+                      </h1>
 
                       <img
                         src="/img/register.svg"

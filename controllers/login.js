@@ -4,7 +4,7 @@ const passport = require("passport")
 const get = async (req, res) => {
     const about = await aboutMain.findAll()
     
-    res.render("login", {about, flash : req.flash().error})
+    res.render("login", {about, flash : req.flash()})
 }
 
 const post = passport.authenticate("local", {
