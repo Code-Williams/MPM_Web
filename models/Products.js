@@ -22,6 +22,14 @@ const Products = db.define("products", {
 
     picture : {
         type : DataTypes.STRING
+    },
+
+    description : {
+        type : DataTypes.STRING
+    },
+
+    count : {
+        type : DataTypes.NUMBER
     }
 }, {
     timestamps : false

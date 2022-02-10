@@ -49,7 +49,9 @@
                   <a
                     class="shopping-cart iconTopmobile-hide search-bar-icon iconTop"
                     href="cart"
-                    ><i class="fas fa-shopping-cart"></i
+                    ><i class="fas fa-shopping-cart">
+                      <p class="productCount" style="color: white; font-size: 14px; border-radius: 50%; background-color: red; height: 20px; width: 20px; float: right; opacity: 0.7; margin-left: 5px;"><%= about.find(x => x.name == "product count").description %></p>  
+                    </i
                   ></a>
                   <a class="mobile-hide search-bar-icon iconTop" href="#"
                     ><i class="fas fa-search"></i
@@ -91,9 +93,9 @@
         <span class="close-btn"><i class="fas fa-window-close"></i></span>
         <div class="search-bar">
           <div class="search-bar-tablecell">
-            <h3>Search For:</h3>
-            <input type="text" placeholder="Keywords" />
-            <button type="submit">Search <i class="fas fa-search"></i></button>
+            <h3>جستجو برای:</h3>
+            <input type="text" placeholder="متن جستجو" />
+            <button type="submit">جستجو <i class="fas fa-search"></i></button>
           </div>
         </div>
       </div>
