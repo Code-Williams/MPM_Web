@@ -81,8 +81,8 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
             <div class="breadcrumb-text">
-              <p>We sale fresh fruits</p>
-              <h1>About Us</h1>
+              <p>Mr Part Maker</p>
+              <h1>درباره ما</h1>
             </div>
           </div>
         </div>
@@ -100,62 +100,25 @@
                 چرا <span class="orange-text">MrPartMaker</span>
               </h2>
               <div class="row">
+
+                <% aboutTop.forEach((item) => { %>
+
                   <div class="col-lg-6 col-md-6 mb-4 mb-md-5">
                     <div class="list-box d-flex">
                       <div class="list-icon">
-                        <i class="fas fa-shipping-fast"></i>
+                        <i class="fas <%= item.icon %>"></i>
                       </div>
                       <div class="content">
-                        <h3>Home Delivery</h3>
+                        <h3><%= item.title %></h3>
                         <p>
-                          sit voluptatem accusantium dolore mque laudantium, totam
-                          rem aperiam, eaque ipsa quae ab illo.
+                          <%= item.description %>
                         </p>
                       </div>
                     </div>
                   </div>
-                <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
-                  <div class="list-box d-flex">
-                    <div class="list-icon">
-                      <i class="fas fa-money-bill-alt"></i>
-                    </div>
-                    <div class="content">
-                      <h3>Best Price</h3>
-                      <p>
-                        sit voluptatem accusantium dolore mque laudantium, totam
-                        rem aperiam, eaque ipsa quae ab illo.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
-                  <div class="list-box d-flex">
-                    <div class="list-icon">
-                      <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="content">
-                      <h3>Custom Box</h3>
-                      <p>
-                        sit voluptatem accusantium dolore mque laudantium, totam
-                        rem aperiam, eaque ipsa quae ab illo.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="list-box d-flex">
-                    <div class="list-icon">
-                      <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <div class="content">
-                      <h3>Quick Refund</h3>
-                      <p>
-                        sit voluptatem accusantium dolore mque laudantium, totam
-                        rem aperiam, eaque ipsa quae ab illo.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+
+                <% }) %>
+
               </div>
             </div>
           </div>
@@ -191,78 +154,31 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
             <div class="section-title">
-              <h3>Our <span class="orange-text">Team</span></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, fuga quas itaque eveniet beatae optio.
-              </p>
+              <h3>تیم <span class="orange-text">ما</span></h3>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single-team-item">
-              <div class="team-bg team-bg-1"></div>
-              <h4>Jimmy Doe <span>Farmer</span></h4>
-              <ul class="social-link-team">
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </li>
-              </ul>
+
+          <% aboutTopRanks.forEach((user) => { %>
+
+
+            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+              <div class="single-team-item">
+                <div class="team-bg" style="background-image: url(/img/<%=user.picture%>);"></div>
+                <h4><%= user.firstName %> <%= user.lastName %> <span><%= user.userRank %></span></h4>
+                <ul class="social-link-team">
+                  <li>
+                    <a href="https://www.instagram.com/<%= user.instagram %>" target="_blank"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-team-item">
-              <div class="team-bg team-bg-2"></div>
-              <h4>Marry Doe <span>Farmer</span></h4>
-              <ul class="social-link-team">
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-            <div class="single-team-item">
-              <div class="team-bg team-bg-3"></div>
-              <h4>Simon Joe <span>Farmer</span></h4>
-              <ul class="social-link-team">
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+
+          <% }) %>
+
         </div>
       </div>
     </div>
@@ -274,57 +190,28 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1 text-center">
             <div class="testimonial-sliders">
-              <div class="single-testimonial-slider">
-                <div class="client-avater">
-                  <img src="/img/avaters/avatar1.png" alt="" />
-                </div>
-                <div class="client-meta">
-                  <h3>Saira Hakim <span>Local shop owner</span></h3>
-                  <p class="testimonial-body">
-                    " Sed ut perspiciatis unde omnis iste natus error veritatis
-                    et quasi architecto beatae vitae dict eaque ipsa quae ab
-                    illo inventore Sed ut perspiciatis unde omnis iste natus
-                    error sit voluptatem accusantium "
-                  </p>
-                  <div class="last-icon">
-                    <i class="fas fa-quote-right"></i>
+
+              <% if(pinnedComments && pinnedComments !== undefined){ %>
+                <% pinnedComments.forEach(comment => { %>
+
+                  <div class="single-testimonial-slider">
+                    <div class="client-avater">
+                      <img src="/img/avaters/<%=comment.icon%>" alt="" />
+                    </div>
+                    <div class="client-meta">
+                      <h3><%= comment.name %><span><%= comment.job %></span></h3>
+                      <p class="testimonial-body fa-text">
+                        " <%= comment.comment %> "
+                      </p>
+                      <div class="last-icon">
+                        <i class="fas fa-quote-right"></i>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="single-testimonial-slider">
-                <div class="client-avater">
-                  <img src="/img/avaters/avatar2.png" alt="" />
-                </div>
-                <div class="client-meta">
-                  <h3>David Niph <span>Local shop owner</span></h3>
-                  <p class="testimonial-body">
-                    " Sed ut perspiciatis unde omnis iste natus error veritatis
-                    et quasi architecto beatae vitae dict eaque ipsa quae ab
-                    illo inventore Sed ut perspiciatis unde omnis iste natus
-                    error sit voluptatem accusantium "
-                  </p>
-                  <div class="last-icon">
-                    <i class="fas fa-quote-right"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="single-testimonial-slider">
-                <div class="client-avater">
-                  <img src="/img/avaters/avatar3.png" alt="" />
-                </div>
-                <div class="client-meta">
-                  <h3>Jacob Sikim <span>Local shop owner</span></h3>
-                  <p class="testimonial-body">
-                    " Sed ut perspiciatis unde omnis iste natus error veritatis
-                    et quasi architecto beatae vitae dict eaque ipsa quae ab
-                    illo inventore Sed ut perspiciatis unde omnis iste natus
-                    error sit voluptatem accusantium "
-                  </p>
-                  <div class="last-icon">
-                    <i class="fas fa-quote-right"></i>
-                  </div>
-                </div>
-              </div>
+
+                <% }) %>
+              <% } %>
+
             </div>
           </div>
         </div>

@@ -2065,22 +2065,6 @@ a.video-play-btn {
   border-bottom-left-radius: 5px;
 }
 
-.team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
-}
-
-.team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
-}
-
-.team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
-}
-
-.team-bg-4 {
-  background-image: url(../img/team/team-4.jpg);
-}
-
 .team-bg {
   height: 400px;
   background-size: cover;
