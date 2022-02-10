@@ -530,6 +530,16 @@ a.boxed-btn {
   padding: 10px 20px;
 }
 
+button.boxed-btn{
+  display: inline-block;
+  font-weight: bold;
+  font-family: "Vazir";
+  background-color: #f28123;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+}
+
 a.bordered-btn {
   display: inline-block;
   color: #fff;
@@ -554,6 +564,10 @@ a.read-more-btn:hover {
 a.boxed-btn,
 a.bordered-btn,
 a.cart-btn {
+  border-radius: 50px;
+}
+
+button.boxed-btn{
   border-radius: 50px;
 }
 
@@ -795,7 +809,18 @@ a.boxed-btn {
   transition: 0.3s;
 }
 
+button.boxed-btn{
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
 a.boxed-btn:hover {
+  background-color: #051922;
+  color: #f28123;
+}
+
+button.boxed-btn:hover {
   background-color: #051922;
   color: #f28123;
 }
@@ -1229,6 +1254,10 @@ body {
 }
 
 .hero-btns a.bordered-btn {
+  margin-left: 15px;
+}
+
+.hero-btns button.bordered-btn {
   margin-left: 15px;
 }
 
@@ -2683,4 +2712,18 @@ table.order-details tbody td {
 
 .darsad::after{
   content: "%";
+}
+
+.flash{
+  background-color: #fceee4;
+  border: 1px solid #f28123;
+  padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 200px;
+  font-size: 14px;
+  font-weight: lighter;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: #944b10;
 }
