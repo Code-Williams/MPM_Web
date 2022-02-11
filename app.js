@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const flash = require("connect-flash")
 const session = require("express-session")
 const cookieParser = require("cookie-parser")
-
+const passport = require("passport")
 
 const app = express();
 
@@ -16,6 +16,9 @@ app.use(session({ secret: config.secret }))
 app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + "/public")); //__dir and not _dir
 app.set("view engine", "ejs");
+
+app.use(passport.initialize());
+app.use(passport.session())
 
 require("./helpers/passport")
 
