@@ -1,4 +1,6 @@
 const express = require("express")
+const { isLoggedIn, isNotLoggedIn } = require("../helpers/auth")
+const { body } = require("express-validator")
 const Router = express.Router()
 
 const HomeController = require("../controllers/homePage")
@@ -19,13 +21,16 @@ const contactController = require("../controllers/contact")
 Router.get("/contact", contactController)
 
 const loginController = require("../controllers/login")
-Router.get("/login", loginController.get)
+Router.get("/login", isNotLoggedIn, loginController.get)
 Router.post('/login', loginController.post);
 
 
 const registerController = require("../controllers/register")
-Router.get("/register", registerController.get)
-Router.post("/register", registerController.post)
+Router.get("/register", isNotLoggedIn, registerController.get)
+Router.post("/register",
+    body('email').isEmail().normalizeEmail().toLowerCase(),
+    registerController.post
+)
 
 Router.get("/news", (req, res) => {
     res.render("news")
@@ -39,7 +44,7 @@ Router.get("/single-product", (req, res) => {
     res.render("single-product")
 })
 
-Router.get("/dashboard", (req, res) => {
+Router.get("/dashboard", isLoggedIn, (req, res) => {
     res.render("user_interface")
 })
 
