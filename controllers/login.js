@@ -2,8 +2,6 @@ const aboutMain = require("../models/About")
 const passport = require("passport")
 
 const get = async (req, res) => {
-    if(req.user) return res.redirect("/")
-
     const about = await aboutMain.findAll()
     
     res.render("login", {
