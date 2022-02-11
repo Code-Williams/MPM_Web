@@ -189,19 +189,22 @@ body {
 .information-address-text {
   font-size: 14px;
   float: right;
+  margin: 0;
+  padding: 0;
 }
 
 .information-address {
   padding: 7px;
   margin: 5px;
   border-bottom: 1px solid rgb(206, 204, 204);
-  height: 50px;
+  height: 60px;
   width: 95%;
 }
 
 .informations-address {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 0;
   padding: 0;
 }
@@ -230,4 +233,15 @@ body {
 
 .menus{
   height: 600px;
+}
+
+.information-address-code{
+  color: gray;
+  font-size: 12px;
+  float: right;
+}
+
+.information-sides{
+  width: 50%; 
+  float: right;
 }

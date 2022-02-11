@@ -1,6 +1,6 @@
 const aboutMain = require("../models/About");
 const User = require("../models/User")
-const { validateResult } = require("express-validator")
+const { validationResult } = require("express-validator")
 
 const get = async (req, res) => {
     const about = await aboutMain.findAll();
@@ -15,7 +15,7 @@ const get = async (req, res) => {
 const post = async (req, res) => {
     let isUserRegistered = true
 
-    const errors = validateResult(req)
+    const errors = validationResult(req)
     if(!errors.isEmpty()){
         isUserRegistered = false
         const errorsArray = errors.array()

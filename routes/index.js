@@ -44,9 +44,8 @@ Router.get("/single-product", (req, res) => {
     res.render("single-product")
 })
 
-Router.get("/dashboard", isLoggedIn, (req, res) => {
-    res.render("user_interface")
-})
+const { dashboardController } = require("../controllers/dashboard")
+Router.get("/dashboard", isLoggedIn, dashboardController)
 
 const ShopController = require("../controllers/shop")
 Router.get("/products/:id", ShopController.single)
@@ -54,6 +53,9 @@ Router.get("/shop", ShopController.all)
 
 const BasketController = require("../controllers/basket")
 Router.post("/dashboard/basket", BasketController.post)
+
+const LogoutController = require("../controllers/logout")
+Router.get("/logout", isLoggedIn, LogoutController.get)
 
 const errController = require("../controllers/error")
 Router.get("/*", errController)

@@ -33,7 +33,7 @@ const user = db.define('user', {
     },
 
     number : {
-        type : DataTypes.NUMBER,
+        type : DataTypes.STRING,
     },
 
     userRank : {
@@ -43,6 +43,21 @@ const user = db.define('user', {
     products : {
         type : DataTypes.NUMBER,
         defaultValue : 0
+    },
+
+    codeMelli : {
+        type : DataTypes.STRING,
+        defaultValue : "ثبت نشده"
+    },
+
+    cardNumber : {
+        type : DataTypes.STRING,
+        defaultValue : "ثبت نشده"
+    },
+
+    news : {
+        type : DataTypes.STRING,
+        defaultValue : "خیر"
     }
 
 }, {

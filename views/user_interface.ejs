@@ -45,7 +45,7 @@
   <body>
     <!-- header -->
     <%- include('./sides/header.ejs', {user}) %>
-    <div style="display: block; width: 100%; height: 130px"></div>
+    <div style="display: block; width: 100%; height: 130px;"></div>
 
     <div class="menus">
       <!-- Right side menu -->
@@ -60,8 +60,8 @@
               />
             </div>
             <div class="profile-left">
-              <p id="menu-username">شایان نصرآبادی</p>
-              <p id="menu-number">09103438399</p>
+              <p id="menu-username" style="width: 100%;"><%= user.firstName %> <%= user.lastName %></p>
+              <p id="menu-number" style="width: 100%;"><%= user.number %></p>
             </div>
           </div>
           <div id="menu-right-profile-bottom">
@@ -114,7 +114,7 @@
             <p class="menu-right-name">اطلاعات حساب</p>
           </a>
 
-          <a class="menu-right-subItem" href="https://www.twitch.tv/">
+          <a class="menu-right-subItem" href="/logout">
             <img src="" alt="" class="menu-right-image" />
             <p class="menu-right-name">خروج</p>
           </a>
@@ -128,32 +128,32 @@
             <ul class="informations">
               <li class="subInformations">
                 <p class="informations-name">نام و نام خانوادگی:</p>
-                <p class="informations-value">شایان نصرآبادی</p>
+                <p class="informations-value"><%= user.firstName %> <%= user.lastName %></p>
               </li>
 
               <li class="subInformations no-border-left">
                 <p class="informations-name">پست الکترونیک</p>
-                <p class="informations-value">williams.ca001@gmail.com</p>
+                <p class="informations-value"><%= user.email %></p>
               </li>
 
               <li class="subInformations">
                 <p class="informations-name">شماره تلفن همراه</p>
-                <p class="informations-value">09103438399</p>
+                <p class="informations-value"><%= user.number %></p>
               </li>
 
               <li class="subInformations no-border-left">
                 <p class="informations-name">کد ملی</p>
-                <p class="informations-value">1051241308</p>
+                <p class="informations-value"><%= user.codeMelli %></p>
               </li>
 
               <li class="subInformations">
                 <p class="informations-name">دریافت خبرنامه</p>
-                <p class="informations-value">خیر</p>
+                <p class="informations-value"><%= user.news %></p>
               </li>
 
               <li class="subInformations no-border-left">
                 <p class="informations-name">روش بازگشت وجه:</p>
-                <p class="informations-value">شماره کارت</p>
+                <p class="informations-value"><%= user.cardNumber %></p>
               </li>
 
               <li class="editInformation">
@@ -167,17 +167,34 @@
           <p class="menuTopInfo-title">آدرس ها</p>
           <div class="menuTopInfo-sub">
             <ul class="informations-address">
-              <li class="information-address">
-                <p class="information-address-text">
-                  استان خراسان رضوی، نیشابور،‌خیابان باهنر، باهنر جنوبی
-                </p>
 
-                <div class="dotted-btn">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </li>
+              <% address.forEach(adr => { %>
+
+
+                <li class="information-address">
+
+                  <div class="information-right-side information-sides">
+
+                      <p class="information-address-text"> <%= adr.address %> </p>
+                      <p class="information-address-code"> <%= adr.code %> : کد پستی</p>  
+                      
+                  </div>
+
+                  <div class="information-left-side information-sides">
+
+                    <div class="dotted-btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+
+                  </div>
+                  
+
+                </li>
+
+              <% }) %>
+
             </ul>
           </div>
         </div>
