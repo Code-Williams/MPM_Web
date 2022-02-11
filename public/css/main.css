@@ -2711,3 +2711,24 @@ table.order-details tbody td {
   margin-left: 10px;
   color: #944b10;
 }
+
+.productCount{
+  color: white;
+  font-size: 10px;
+  border-radius: 50%;
+  background-color: red;
+  height: 15px;
+  width: 15px;
+  float: right;
+  margin-left: 5px !important;
+}
+
+.noneBtn{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.noneBtn:hover{
+  color: #f28123;
+}

@@ -37,6 +37,11 @@ const user = db.define('user', {
 
     userRank : {
         type : DataTypes.STRING,
+    },
+
+    products : {
+        type : DataTypes.NUMBER,
+        defaultValue : 0
     }
 
 }, {

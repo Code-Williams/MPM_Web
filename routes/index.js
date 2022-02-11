@@ -20,7 +20,8 @@ Router.get("/contact", contactController)
 
 const loginController = require("../controllers/login")
 Router.get("/login", loginController.get)
-Router.post("/login", loginController.post)
+Router.post('/login', loginController.post);
+
 
 const registerController = require("../controllers/register")
 Router.get("/register", registerController.get)
@@ -46,7 +47,11 @@ const ShopController = require("../controllers/shop")
 Router.get("/products/:id", ShopController.single)
 Router.get("/shop", ShopController.all)
 
+const BasketController = require("../controllers/basket")
+Router.post("/dashboard/basket", BasketController.post)
+
 const errController = require("../controllers/error")
 Router.get("/*", errController)
+
 
 module.exports = Router
