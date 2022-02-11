@@ -42,15 +42,26 @@
               </li>
               <li>
                 <div class="header-icons whiteText">
-                  <a href="/login" class="sign-items">ورود</a>
-                  /
-                  <a href="/register" class="sign-items">ثبت نام</a>
+
+                  <% if(!user){ %>
+
+                    <a href="/login" class="sign-items">ورود</a>
+                    /
+                    <a href="/register" class="sign-items">ثبت نام</a>
+
+                  <% }else{ %>
+
+                    <a href="/dashboard">سلام <%= user.firstName %></a>
+
+                  <%}%>
 
                   <a
                     class="shopping-cart iconTopmobile-hide search-bar-icon iconTop"
                     href="cart"
                     ><i class="fas fa-shopping-cart">
-                      <p class="productCount" style="color: white; font-size: 14px; border-radius: 50%; background-color: red; height: 20px; width: 20px; float: right; opacity: 0.7; margin-left: 5px;"><%= about.find(x => x.name == "product count").description %></p>  
+                      <% if(user){ %>
+                        <p class="productCount"><%= (user.products) ? user.products : 0 %></p>
+                      <% } %>
                     </i
                   ></a>
                   <a class="mobile-hide search-bar-icon iconTop" href="#"
