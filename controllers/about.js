@@ -11,7 +11,14 @@ const about = async (req, res) => {
     let pinnedComments = await PinnedComments.findAll();
     let aboutTopRanks = await AboutsTopRanks.findAll();
 
-    res.render("about", {about, offers, aboutTop, pinnedComments, aboutTopRanks})
+    res.render("about", {
+        about,
+        offers, 
+        aboutTop, 
+        pinnedComments, 
+        aboutTopRanks,
+        user : req.user
+    })
 }
 
 module.exports = about

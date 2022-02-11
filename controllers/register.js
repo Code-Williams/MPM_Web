@@ -2,9 +2,15 @@ const aboutMain = require("../models/About")
 const User = require("../models/User")
 
 const get = async (req, res) => {
+    if(req.user) return res.redirect("/")
+
     const about = await aboutMain.findAll();
 
-    res.render("register", {about, flash : req.flash()})
+    res.render("register", {
+        about, 
+        flash : req.flash(),
+        user : req.user
+    })
 }
 
 const post = async (req, res) => {
@@ -48,7 +54,11 @@ const post = async (req, res) => {
 
         res.redirect("/login")
     }else{
-        res.render("register", {about, flash : req.flash()})
+        res.render("register", {
+            about, 
+            flash : req.flash(),
+            user : req.user
+        })
     }
 
 }

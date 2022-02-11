@@ -6,6 +6,7 @@ const News = require("../models/News")
 const HomeMainItems = require("../models/HomeMainItems");
 
 const HomeController = async (req, res) => {
+    console.log("user", req.user)
     const homeTopItemsMain = await HomeTopObjs.findAll();
     const offersMain = await Offers.findAll();
     const pinnedCommentsMain = await PinnedComments.findAll();
@@ -27,7 +28,14 @@ const HomeController = async (req, res) => {
     if(!news[0]) news = undefined
     if(!homeMainItems[0]) homeMainItems = undefined
 
-    res.render("index", {homeTopItems, offers, pinnedComments, about, news, homeMainItems});
+    res.render("index", {
+        homeTopItems, offers, 
+        pinnedComments, 
+        about, 
+        news, 
+        homeMainItems, 
+        user : req.user
+    });
 }
 
 module.exports = HomeController;
