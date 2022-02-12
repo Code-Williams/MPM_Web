@@ -19,6 +19,20 @@ const dashboardController = async (req, res) => {
     })
 }
 
+const orders = async (req, res) => {
+    const about = await About.findAll();
+    const user = await User.findByPk(req.user.id);
+    const tab = req.query.activeTab || "in_progress"
+
+    res.render("dashboardOrder", {
+        about,
+        user,
+        tab,
+        flash : req.flash()
+    })
+}
+
 module.exports = {
-    dashboardController
+    dashboardController,
+    orders
 }

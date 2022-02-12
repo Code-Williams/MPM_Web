@@ -1,0 +1,45 @@
+#orders-handler{
+    grid-column: span 5/span 5;
+    display : flex;
+    justify-content: center;
+}
+
+#orders-main {
+    background-color: white;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 7px;
+    width: 95%;
+}
+
+.orders-main-titleHandler{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.orders-main-titleHandler > p{
+    font-size: 25px;
+}
+
+#orders-main-ul{
+    float: right;
+    width: 95%;
+    margin: 10px;
+}
+
+.orders-sub-li{
+    float: right;
+    text-align: right;
+    margin: 5px;
+    padding: 10px;
+}
+
+.orders-sub-li > a{
+    font-size: 16px;
+    color: gray;
+}
+
+.active-order-tab > a{
+    color: rgb(248, 104, 104);
+    border-bottom: 2px solid rgb(248, 104, 104);
+}
