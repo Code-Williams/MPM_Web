@@ -57,6 +57,9 @@ Router.post("/dashboard/basket", BasketController.post)
 const LogoutController = require("../controllers/logout")
 Router.get("/logout", isLoggedIn, LogoutController.get)
 
+const addressController = require("../controllers/addrss")
+Router.post("/address", addressController.post)
+
 const errController = require("../controllers/error")
 Router.get("/*", errController)
 

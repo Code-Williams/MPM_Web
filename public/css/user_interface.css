@@ -189,6 +189,8 @@ body {
 .information-address-text {
   font-size: 14px;
   float: right;
+  width: 100%;
+  text-align: right;
   margin: 0;
   padding: 0;
 }
@@ -207,6 +209,8 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow: scroll;
 }
 
 .dotted-btn {
@@ -239,9 +243,72 @@ body {
   color: gray;
   font-size: 12px;
   float: right;
+  text-align: right;
+  width: 100%;
 }
 
 .information-sides{
   width: 50%; 
   float: right;
+  height: 100%;
+}
+
+.options{
+  background-color: white;
+  justify-content: center; 
+  align-items: center; 
+  position: absolute; 
+  flex-direction: column;
+  box-shadow: 0 0 10px 1px rgb(197, 197, 197);
+  padding: 10px; 
+  border-radius: 7px; 
+  width: 100px; 
+  margin-top: 20px;
+}
+
+input.optionsBtn{
+  width: 100%;
+  height: 100%;
+  font-weight: lighter;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  font-size: 14px !important;
+  color: rgb(70, 70, 70) !important;
+  padding: 0 !important;
+}
+
+.optionsBtn:not(:last-child){
+  border-bottom: 1px solid rgb(218, 214, 214) !important;
+  padding-bottom: 5px !important;
+  margin-bottom: 5px;
+}
+
+.optionsBtn:hover{
+  color: #f28123 !important;
+}
+
+.flash{
+  width: 95%;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.address-err{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 118, 118);
+  text-align: right;
+  direction: rtl;
+}
+
+.address-err a{
+  font-weight: lighter;
+  font-size: 14px;
+  margin-right: 10px;
 }
