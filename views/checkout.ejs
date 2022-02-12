@@ -42,31 +42,12 @@
 
     <link rel="stylesheet" href="/css/header.css">
 
+    <link rel="stylesheet" href="/css/checkout.css">
+
   </head>
   <body>
 
-    <%- incldue("./sides/header.ejs", {user}) %>
-
-    <!-- search area -->
-    <div class="search-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <span class="close-btn"><i class="fas fa-window-close"></i></span>
-            <div class="search-bar">
-              <div class="search-bar-tablecell">
-                <h3>Search For:</h3>
-                <input type="text" placeholder="Keywords" />
-                <button type="submit">
-                  Search <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end search arewa -->
+    <%- include("./sides/header.ejs", {user}) %>
 
     <!-- breadcrumb-section -->
     <div class="breadcrumb-section breadcrumb-bg">
@@ -155,10 +136,40 @@
                   >
                     <div class="card-body">
                       <div class="shipping-address-form">
-                        <p><input type="tel" placeholder="استان" /></p>
-                        <p><input type="tel" placeholder="شهر" /></p>
-                        <p><input type="tel" placeholder="آدرس" /></p>
-                        <p><input type="tel" placeholder="کد پستی" /></p>
+
+                        <% addresses.forEach(address => { %>
+
+                          <label for="shipping-address-<%= address.id %>" class="shipping-address-detail">
+
+                            <input
+                              type="radio"
+                              name="shipping-address"
+                              id="shipping-address-<%= address.id %>"
+                              value="<%= address.id %>"
+                            />
+
+                            <span class="shipping-detail-name">
+                              <%= address.name %>
+                            </span>
+                            <br>
+                            <span>
+                              <%= address.address%>
+                            </span>
+                            <br>
+                            <span>
+                              <%= address.code %> : کد پستی
+                            </span>
+
+                            <script>
+                              $("#shipping-address-<%= address.id %>").click(function() {
+                                $("#shipping-address-<%= address.id %>").prop("checked", true);
+                              });
+                            </script>
+
+                          </label>
+
+                        <% }) %>
+
                       </div>
                     </div>
                   </div>
@@ -191,30 +202,37 @@
                     <td>قیمت</td>
                     <td>کالا</td>
                   </tr>
-                  <tr>
-                    <td class="product-price">85.00</td>
-                    <td>Strawberry</td>
-                  </tr>
-                  <tr>
-                    <td class="product-price">70.00</td>
-                    <td>Berry</td>
-                  </tr>
-                  <tr>
-                    <td class="product-price">35.00</td>
-                    <td>Lemon</td>
-                  </tr>
+
+                  <% let allPrice = 0 %>
+                  <% let sendPrice = about.find(x => x.name == "send").description %>
+                  <% orders.forEach((order) => { %>
+                    <% const findProduct = products.find(x => x.id == order.productId) %>
+
+                    <% if(findProduct){ %>
+                      <% const price = Number(convertToEnglish(findProduct.price)) * Number(order.count) %>
+
+                      <tr>
+                        <td class="product-price"><%= convertToPersian(price) %></td>
+                        <td><%= findProduct.name %></td>
+                      </tr>
+
+                      <% allPrice += price %>
+                    <% } %>
+
+                  <% }) %>
+
                 </tbody>
                 <tbody class="checkout-details">
                   <tr>
-                    <td class="product-price">190</td>
+                    <td class="product-price"><%= convertToPersian(allPrice) %></td>
                     <td>جمع کالا</td>
                   </tr>
                   <tr>
-                    <td class="product-price">50</td>
+                    <td class="product-price"><%= convertToPersian(sendPrice) %></td>
                     <td>ارسال</td>
                   </tr>
                   <tr>
-                    <td class="product-price">240</td>
+                    <td class="product-price"><%= convertToPersian(allPrice + Number(sendPrice)) %></td>
                     <td>جمع کل</td>
                   </tr>
                 </tbody>

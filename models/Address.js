@@ -18,6 +18,10 @@ const address = db.define("address", {
 
     address : {
         type : DataTypes.STRING
+    },
+
+    name : {
+        type : DataTypes.STRING
     }
 }, {
     timestamps : false

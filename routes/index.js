@@ -12,9 +12,8 @@ Router.get("/about", AboutController)
 const CartController = require("../controllers/cart")
 Router.get("/cart", isLoggedIn, CartController)
 
-Router.get("/checkout", (req, res) => {
-    res.render("checkout")
-})
+const CheckoutController = require("../controllers/checkout")
+Router.get("/checkout", isLoggedIn, CheckoutController)
 
 const contactController = require("../controllers/contact")
 Router.get("/contact", contactController)
