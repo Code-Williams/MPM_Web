@@ -52,6 +52,13 @@
       <div class="menu-right">
         <div class="menu-right-profile">
           <div id="menu-right-profile-top">
+            <% for(const key in flash){ %>
+                          
+              <span role="alert" class="flash flash-<%=key%>">
+                <%= flash[key] %>
+              </span>
+        
+            <% } %>
             <div class="profile-image-menu-handler">
               <img
                 src="/img/profile-image.svg"
@@ -168,32 +175,75 @@
           <div class="menuTopInfo-sub">
             <ul class="informations-address">
 
-              <% address.forEach(adr => { %>
+              <script>
+                function addListener(id){
+                  var dotted = document.getElementById(`dotted-${id}`);
+                  var menu = document.getElementById(`dotted-menu-${id}`)
+                  dotted.addEventListener("click", () => {
+                    if(menu.style.display == 'none'){
+                      menu.style.display = 'block';
+                    }else{
+                      menu.style.display = 'none';
+                    }
+                  })
 
+                  window.addEventListener("mouseup", function(event){
+                    var container = document.getElementById(`dotted-menu-${id}`);
+                    if (container === null) return;
 
-                <li class="information-address">
+                    if (event.target !== menu && !dotted.contains(event.target)) {
+                      container.style.display = "none";
+                    }
+                  });
+                }
+              </script>
 
-                  <div class="information-right-side information-sides">
+              <% if(address[0]){ %>
 
-                      <p class="information-address-text"> <%= adr.address %> </p>
-                      <p class="information-address-code"> <%= adr.code %> : کد پستی</p>  
-                      
-                  </div>
+                <% address.forEach(adr => { %>
 
-                  <div class="information-left-side information-sides">
-
-                    <div class="dotted-btn">
-                      <span></span>
-                      <span></span>
-                      <span></span>
+                  <li class="information-address">
+  
+                    <div class="information-right-side information-sides">
+  
+                        <p class="information-address-text"> <%= adr.address %> </p>
+                        <p class="information-address-code"> <%= adr.code %> : کد پستی</p>  
+                        
                     </div>
+  
+                    <div class="information-left-side information-sides">
+  
+                      <div class="rightOptions">
+                        <div class="dotted-btn" id="dotted-<%=adr.id%>">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+  
+                        <div class="options" style="display: none;" id="dotted-menu-<%=adr.id%>">
+                          <form action="/address?id=<%=adr.id%>" method="post">
+                            <input type="submit" name="edit" value="ویرایش" class="edit-address optionsBtn"></input>
+                            <input type="submit" name="delete" value="حذف" class="delete-address optionsBtn"></input>
+                          </form>
+                        </div>
+                      </div>
+  
+                    </div>
+                    
+  
+                  </li>
+  
+                  <script> addListener("<%=adr.id%>") </script>
+  
+                <% }) %>
 
-                  </div>
-                  
+              <% }else{ %>
 
-                </li>
+                <div class="address-err">آدرسی یافت نشد. <a href="/dashboard/addresses">اضافه کنید.</a></div>
 
-              <% }) %>
+              <% } %>
+
+              
 
             </ul>
           </div>
@@ -222,6 +272,6 @@
     <!-- main js -->
     <script src="/js/main.js"></script>
 
-    <script src=".//js/sticker.js"></script>
+    <script src="/js/sticker.js"></script>
   </body>
 </html>
