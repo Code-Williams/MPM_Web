@@ -79,13 +79,11 @@
                 </div>
                 <h3><%= product.name %></h3>
                 <p class="product-price"><span>هر <%= product.per %></span> <%= product.price %></p>
-                <a href="cart.html" class="cart-btn">
-                  <form action="/dashboard/basket?product=<%=product.id%>" method="post">
-                    <button type="submit" class="noneBtn">
-                      <i class="fas fa-shopping-cart"></i> افزودن به سبد خرید
-                    </button>
-                  </form>
-                </a>
+                <form action="/products/<%= product.id %>" method="post">
+
+                  <%- include("./sides/addToCart.ejs") %>
+
+                </form>
               </div>
             </div>
 
@@ -93,7 +91,7 @@
 
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-12 text-center">
             <div class="pagination-wrap">
               <ul>
@@ -105,7 +103,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- end products -->

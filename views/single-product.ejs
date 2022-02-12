@@ -75,16 +75,18 @@
             <div class="single-product-content">
               <h3><%= product.name %></h3>
               <p class="single-product-pricing"><span>هر <%=product.per%></span> <%= product.price %> تومان</p>
-              <p>
-                <%= product.description %>
-              </p>
+              <p> <%= product.description %> </p>
+
               <div class="single-product-form">
-                <form action="index.html">
-                  <input type="number" placeholder="0" max="<%=product.count%>" min="0"/>
+                <form action="/products/<%= product.id %>" method="post">
+
+                  مقدار‌ : <input type="number" name="count" placeholder="0" max="<%=product.count%>" min="1" value="1"/> <%= product.per %>
+
+                  <br>
+
+                  <%- include("./sides/addToCart.ejs") %>
+
                 </form>
-                <a href="cart.html" class="cart-btn"
-                  ><i class="fas fa-shopping-cart"></i> افزودن به سبد خرید</a
-                >
                 <!-- <p><strong>Categories: </strong>Fruits, Organic</p> -->
               </div>
               <!-- <h4>Share:</h4>
@@ -129,9 +131,9 @@
               </div>
               <h3>Strawberry</h3>
               <p class="product-price"><span>Per Kg</span> 85</p>
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> افزودن به سبد خرید</a
-              >
+
+              <%- include("./sides/addToCart.ejs") %>
+
             </div>
           </div>
           <div class="col-lg-4 col-md-6 text-center">
@@ -143,9 +145,9 @@
               </div>
               <h3>Berry</h3>
               <p class="product-price"><span>Per Kg</span> 70</p>
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> افزودن به سبد خرید</a
-              >
+              
+              <%- include("./sides/addToCart.ejs") %>
+
             </div>
           </div>
           <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
@@ -157,9 +159,9 @@
               </div>
               <h3>Lemon</h3>
               <p class="product-price"><span>Per Kg</span> 35</p>
-              <a href="cart.html" class="cart-btn"
-                ><i class="fas fa-shopping-cart"></i> افزودن به سبد خرید</a
-              >
+              
+              <%- include("./sides/addToCart.ejs") %>
+
             </div>
           </div>
         </div>

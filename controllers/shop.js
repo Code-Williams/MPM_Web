@@ -1,5 +1,7 @@
 const aboutMain = require("../models/About");
-const Products = require("../models/Products")
+const Products = require("../models/Products");
+const User = require("../models/User")
+const Order = require("../models/Order")
 
 const all = async (req, res) => {
     const about = await aboutMain.findAll();
@@ -12,7 +14,7 @@ const all = async (req, res) => {
     })
 }
 
-const single = async (req, res) => {
+const singleGet = async (req, res) => {
     const about = await aboutMain.findAll()
     const product = await Products.findByPk(req.params.id)
 
@@ -23,7 +25,28 @@ const single = async (req, res) => {
     })
 }
 
+const singlePost = async(req, res) => {
+    const count = (req.body.count) ? Number(req.body.count) : 1
+
+    const findUser = await User.findByPk(req.user.id)
+    findUser.update({
+        products : Number(req.user.products) + count
+    })
+
+    await Order.create({
+        userId : req.user.id,
+        productId : req.params.id,
+        count,
+        status : "در سبد خرید"
+    })
+
+    res.redirect("/cart")
+}
+
 module.exports = {
     all,
-    single
+    single : {
+        get : singleGet,
+        post : singlePost
+    }
 };
