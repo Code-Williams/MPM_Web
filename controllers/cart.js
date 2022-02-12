@@ -1,10 +1,33 @@
 const About = require("../models/About")
 const Order = require("../models/Order")
 const Product = require("../models/Products")
+const OfferCode = require("../models/OfferCode")
+const User = require("../models/User")
 
 const cart = async (req, res) => {
+    if(req.query.delete){
+        const orderData = await Order.findByPk(req.query.delete)
+        const userData = await User.findByPk(req.user.id)
+
+        if(orderData){
+            await userData.update({
+                products : Number(req.user.products) - Number(orderData.count)
+            })
+
+            await Order.destroy({
+                where : {
+                    id : req.query.delete
+                }
+            })
+        }
+
+        res.redirect("/cart")
+        return;
+    }
+
     const about = await About.findAll();
     const products = await Product.findAll();
+    const offerCodes = await OfferCode.findAll();
     const orders = await Order.findAll({
         where :{
             userId : req.user.id
@@ -29,7 +52,7 @@ const cart = async (req, res) => {
         return str
     };
 
-    res.render("cart", {about, orders, user : req.user, products, convertToEnglish, convertToPersian})
+    res.render("cart", {about, orders, user : req.user, products, convertToEnglish, convertToPersian, offerCodes})
 }
 
 module.exports = cart

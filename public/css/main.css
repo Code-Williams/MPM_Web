@@ -2308,7 +2308,7 @@ ul.social-link-team li a {
   content: "تومان";
   margin-right: 10px;
   color: #555a5c;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 p.product-price {
@@ -2738,9 +2738,4 @@ table.order-details tbody td {
   background-color: rgb(247, 255, 234) !important;
   border: 1px solid rgb(9, 182, 9) !important;
   color: rgb(30, 134, 30) !important;
-}
-
-td.product-total::after{
-  content: "تومان";
-  margin-right: 10px;
 }

@@ -75,8 +75,8 @@
                     <th class="product-image">عکس محصول</th>
                     <th class="product-name">نام</th>
                     <th>قیمت کالا</th>
-                    <th class="product-quantity">تعداد</th>
-                    <th class="product-total">قیمت</th>
+                    <th class="product-quantity">مقدار</th>
+                    <th class="product-total"> قیمت کل</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -89,15 +89,15 @@
 
                       <tr class="table-body-row">
                         <td class="product-remove">
-                          <a href="#"><i class="far fa-trash-alt"></i></a>
+                          <a href="/cart?delete=<%=order.id%>"><i class="far fa-trash-alt"></i></a>
                         </td>
                         <td class="product-image">
                           <img src="/img/products/<%= product.picture %>" alt="" />
                         </td>
                         <td class="product-name"><%= product.name %></td>
                         <td class="product-price"><%= product.price %></td>
-                        <td class="product-quantity"><%= order.count %></td>
-                        <td class="product-total"><%= convertToPersian(Number(productPrice) * Number(order.count)) %></td>
+                        <td class="product-quantity faText"> <%= order.count %> <%= product.per %></td>
+                        <td class="product-total product-price"><%= convertToPersian(Number(productPrice) * Number(order.count)) %></td>
                       </tr>
 
                     <% } %>
@@ -129,7 +129,7 @@
                   </tr>
                   <tr class="total-data">
                     <td class="product-price">545</td>
-                    <td><strong>قیمت کل: </strong></td>
+                    <td><strong>قیمت نهایی: </strong></td>
                   </tr>
                 </tbody>
               </table>
