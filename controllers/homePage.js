@@ -6,7 +6,6 @@ const News = require("../models/News")
 const HomeMainItems = require("../models/HomeMainItems");
 
 const HomeController = async (req, res) => {
-    console.log("user", req.user)
     const homeTopItemsMain = await HomeTopObjs.findAll();
     const offersMain = await Offers.findAll();
     const pinnedCommentsMain = await PinnedComments.findAll();
