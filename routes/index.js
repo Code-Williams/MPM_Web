@@ -9,9 +9,8 @@ Router.get("/", HomeController)
 const AboutController = require("../controllers/about")
 Router.get("/about", AboutController)
 
-Router.get("/cart", (req, res) => [
-    res.render("cart")
-])
+const CartController = require("../controllers/cart")
+Router.get("/cart", isLoggedIn, CartController)
 
 Router.get("/checkout", (req, res) => {
     res.render("checkout")
@@ -40,19 +39,13 @@ Router.get("/single-news", (req, res) => {
     res.render("single-news")
 })
 
-Router.get("/single-product", (req, res) => {
-    res.render("single-product")
-})
-
 const { dashboardController } = require("../controllers/dashboard")
 Router.get("/dashboard", isLoggedIn, dashboardController)
 
 const ShopController = require("../controllers/shop")
-Router.get("/products/:id", ShopController.single)
+Router.get("/products/:id", ShopController.single.get)
+Router.post("/products/:id", isLoggedIn, ShopController.single.post)
 Router.get("/shop", ShopController.all)
-
-const BasketController = require("../controllers/basket")
-Router.post("/dashboard/basket", BasketController.post)
 
 const LogoutController = require("../controllers/logout")
 Router.get("/logout", isLoggedIn, LogoutController.get)
