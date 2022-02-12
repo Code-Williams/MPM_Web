@@ -58,6 +58,11 @@ const user = db.define('user', {
     news : {
         type : DataTypes.STRING,
         defaultValue : "خیر"
+    },
+
+    wallet : {
+        type : DataTypes.STRING,
+        defaultValue : 0
     }
 
 }, {

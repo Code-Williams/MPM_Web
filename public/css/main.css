@@ -2739,3 +2739,13 @@ table.order-details tbody td {
   border: 1px solid rgb(9, 182, 9) !important;
   color: rgb(30, 134, 30) !important;
 }
+
+#wallet{
+  font-size: 14px !important;
+  font-weight: lighter !important;
+}
+
+#wallet::after{
+  margin-right: 5px !important;
+  font-size: 12px !important;
+}
