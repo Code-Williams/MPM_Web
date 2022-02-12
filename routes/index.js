@@ -21,7 +21,7 @@ Router.get("/contact", contactController)
 
 const loginController = require("../controllers/login")
 Router.get("/login", isNotLoggedIn, loginController.get)
-Router.post('/login', loginController.post);
+Router.post('/login', loginController.post, loginController.func);
 
 
 const registerController = require("../controllers/register")

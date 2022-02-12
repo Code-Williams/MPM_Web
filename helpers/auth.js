@@ -1,7 +1,8 @@
 const isLoggedIn = (req, res, next) => {
     if(!req.user){
         req.flash("warning", "شما باید وارد حساب کاربری خود شوید")
-        res.redirect("/login?redirect=" + req.originalUrl)
+        req.session.redirectTo = req.url;
+        res.redirect("/login")
         return;
     }
 

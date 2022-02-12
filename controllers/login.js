@@ -12,13 +12,19 @@ const get = async (req, res) => {
 }
 
 const post = passport.authenticate("local", {
-    successRedirect : "/",
     failureRedirect : "/login",
     failureFlash : true,
     session : true
 })
 
+const func = (req, res) => {
+    var redirectTo = req.session.redirectTo || "/"
+    delete req.session.redirectTo
+    res.redirect(redirectTo)
+}
+
 module.exports = {
     get,
-    post
+    post,
+    func
 };
