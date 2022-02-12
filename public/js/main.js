@@ -148,7 +148,7 @@
             meanScreenWidth: "992"
         });
         
-         // search form
+         // ! THIS HAVE A BUG search form
         $(".search-bar-icon").on("click", function(){
             $(".search-area").addClass("search-active");
         });
@@ -157,11 +157,6 @@
             $(".search-area").removeClass("search-active");
         });
     
-    });
-
-
-    jQuery(window).on("load",function(){
-        jQuery(".loader").fadeOut(1000);
     });
 
 
