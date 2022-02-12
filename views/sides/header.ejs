@@ -59,8 +59,8 @@
                     class="shopping-cart iconTopmobile-hide search-bar-icon iconTop"
                     href="cart"
                     ><i class="fas fa-shopping-cart">
-                      <% if(user){ %>
-                        <p class="productCount"><%= (user.products) ? user.products : 0 %></p>
+                      <% if(user && user.products > 0){ %>
+                        <p class="productCount"><%= user.products %></p>
                       <% } %>
                     </i
                   ></a>
