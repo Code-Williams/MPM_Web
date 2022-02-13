@@ -59,7 +59,7 @@
             <p>تاریخچه سفارشات</p>
           </div>
           
-          <ul id="orders-main-ul">
+          <ul id="orders-main-ul" style="width: 100%;">
             
             <li class="orders-sub-li <%= (tab == 'in_progress') ? 'active-order-tab' : ''%>">
               <a href="?activeTab=in_progress">جاری</a>
@@ -78,6 +78,50 @@
             </li>
             
           </ul>
+
+          
+          <div class="orders-main-box-handler">
+            <div class="orders-main-box">
+              <% if(results[0]){ %>
+              
+                <% results.forEach(result => { %>
+
+                  <div class="orders-sub-main">
+                    <ul class="orders-info">
+                      <li class="orders-info-sub">
+                        <p class="ois-key">کد سفارش</p>
+                        <p class="ois-value"><%= result.id %></p>
+                      </li>
+
+                      <li class="orders-info-sub">
+                        <p class="ois-key">مبلغ</p>
+                        <p class="ois-value"><%= result.price || "ثبت نشده" %></p>
+                      </li>
+                    </ul>
+
+                    <div class="orders-point">
+                      <p>امتیاز</p>
+                      <p><%= result.point || "ثبت نشده" %></p>
+                    </div>
+
+                    <div class="orders-picture">
+                      <% const findProduct = products.find(x => x.id == result.productId) %>
+                      <img src="/img/products/<%= findProduct.picture %>" alt="" class="orders-picture-img">
+                    </div>
+                  </div>
+
+                <% }) %>
+
+              <% }else{ %>
+
+                <h3>هیچ محصولی یافت نشد</h3>
+
+              <% } %>
+
+            </div>
+          </div>
+
+
         </div>
       </div>
 
