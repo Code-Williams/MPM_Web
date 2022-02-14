@@ -63,6 +63,11 @@ const user = db.define('user', {
     wallet : {
         type : DataTypes.STRING,
         defaultValue : 0
+    },
+
+    picture : {
+        type : DataTypes.STRING,
+        defaultValue : null
     }
 
 }, {
