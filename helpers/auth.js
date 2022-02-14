@@ -18,7 +18,13 @@ const isNotLoggedIn = (req, res, next) => {
     next()
 }
 
+const isUserAdmin = (req, res, next) => {
+    if(req.user.userRank !== "admin") return res.redirect("/");
+    next()
+}
+
 module.exports = {
     isLoggedIn,
-    isNotLoggedIn
+    isNotLoggedIn,
+    isUserAdmin
 }
