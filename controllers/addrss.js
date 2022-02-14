@@ -9,7 +9,7 @@ const post = (req, res) => {
         })
         .then(() => {
             req.flash("success", "آدرس مورد نظر حذف شد")
-            res.redirect("/dashboard")
+            res.redirect(req.query.redirect)
         })
     }else if(req.body.edit){
         res.redirect(`/dashboard/addresses?id=${req.query.id}&action=edit`)

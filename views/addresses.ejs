@@ -57,6 +57,29 @@
             <div id="orders-main">
 
                 <% if(!single){ %>
+
+                    <script>
+                        function addListener(id){
+                            var dotted = document.getElementById(`dotted-${id}`);
+                            var menu = document.getElementById(`dotted-menu-${id}`)
+                            dotted.addEventListener("click", () => {
+                            if(menu.style.display == 'none'){
+                                menu.style.display = 'block';
+                            }else{
+                                menu.style.display = 'none';
+                            }
+                            })
+        
+                            window.addEventListener("mouseup", function(event){
+                            var container = document.getElementById(`dotted-menu-${id}`);
+                            if (container === null) return;
+        
+                            if (event.target !== menu && !dotted.contains(event.target)) {
+                                container.style.display = "none";
+                            }
+                            });
+                        }
+                    </script>
           
                     <div class="orders-main-titleHandler">
                     <p style="font-size : 20px;">آدرس ها</p>
@@ -67,23 +90,39 @@
                     </div>
             
                     <ul class="orders-main-ul">
-                        <% addresses.forEach(address => { %>
+                        <% if(addresses[0]){ %>
 
-                            <li class="orders-sub"> 
-                                <div class="three-dottes" style="float: left;">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                
-                                <p class="address-name"> <%= address.name %> </p>
+                            <% addresses.forEach(address => { %>
 
-                                <p class="address-text"> <%= address.address %> </p>
-                                <p class="address-code"> <%= address.code %> </p>
-                            </li>
+                                <li class="orders-sub"> 
+                                    <div class="dotted-btn" id="dotted-<%=address.id%>">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    
+                                    <div class="options" style="display: none;" id="dotted-menu-<%=address.id%>">
+                                        <form action="/address?id=<%=address.id%>&redirect=/dashboard/addresses" method="post">
+                                        <input type="submit" name="edit" value="ویرایش" class="edit-address optionsBtn"></input>
+                                        <input type="submit" name="delete" value="حذف" class="delete-address optionsBtn"></input>
+                                        </form>
+                                    </div>
 
+                                    <p class="address-name"> <%= address.name %> </p>
 
-                        <% }) %>
+                                    <p class="address-text"> <%= address.address %> </p>
+                                    <p class="address-code"> <%= address.code %> </p>
+                                </li>
+
+                                <script> addListener("<%=address.id%>") </script>
+                            <% }) %>
+
+                        <% }else{ %>
+
+                            <h3 class="adr-err">آدرسی پیدا نشد</h3>
+
+                        <% } %>
+
                     </ul>
 
                 <% }else{ %>

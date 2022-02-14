@@ -70,3 +70,13 @@
     border-radius: 50%;
     margin: 3px;
 }
+
+.adr-err{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(236, 81, 81);
+}

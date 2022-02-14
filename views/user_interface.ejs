@@ -144,7 +144,7 @@
                         </div>
   
                         <div class="options" style="display: none;" id="dotted-menu-<%=adr.id%>">
-                          <form action="/address?id=<%=adr.id%>" method="post">
+                          <form action="/address?id=<%=adr.id%>&redirect=/dashboard" method="post">
                             <input type="submit" name="edit" value="ویرایش" class="edit-address optionsBtn"></input>
                             <input type="submit" name="delete" value="حذف" class="delete-address optionsBtn"></input>
                           </form>
