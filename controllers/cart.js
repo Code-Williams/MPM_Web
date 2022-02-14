@@ -30,7 +30,8 @@ const cart = async (req, res) => {
     const offerCodes = await OfferCode.findAll();
     const orders = await Order.findAll({
         where :{
-            userId : req.user.id
+            userId : req.user.id,
+            status : "in_basket"
         }
     })
 

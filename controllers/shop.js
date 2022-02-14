@@ -37,7 +37,7 @@ const singlePost = async(req, res) => {
         userId : req.user.id,
         productId : req.params.id,
         count,
-        status : "در سبد خرید"
+        status : "in_basket"
     })
 
     res.redirect("/cart")

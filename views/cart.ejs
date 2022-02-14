@@ -42,6 +42,8 @@
 
     <link rel="stylesheet" href="/css/header.css">
 
+    <link rel="stylesheet" href="/css/cart.css">
+
   </head>
   <body>
 
@@ -69,91 +71,107 @@
         <div class="row">
           <div class="col-lg-8 col-md-12">
             <div class="cart-table-wrap">
-              <table class="cart-table">
-                <thead class="cart-table-head">
-                  <tr class="table-head-row">
-                    <th class="product-remove"></th>
-                    <th class="product-image">عکس محصول</th>
-                    <th class="product-name">نام</th>
-                    <th>قیمت کالا</th>
-                    <th class="product-quantity">مقدار</th>
-                    <th class="product-total"> قیمت کل</th>
-                  </tr>
-                </thead>
-                <tbody>
 
-                  <% orders.forEach((order) => { %>
-                    <% const product = products.find(x => x.id == order.productId) %>
-                    <% const productPrice = convertToEnglish(product.price.replaceAll(",", "")) %>
+              <% if(orders[0]){ %>
 
-                    <% if(product){ %>
+                <table class="cart-table">
+                  <thead class="cart-table-head">
+                    <tr class="table-head-row">
+                      <th class="product-remove"></th>
+                      <th class="product-image">عکس محصول</th>
+                      <th class="product-name">نام</th>
+                      <th>قیمت کالا</th>
+                      <th class="product-quantity">مقدار</th>
+                      <th class="product-total"> قیمت کل</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-                      <tr class="table-body-row">
-                        <td class="product-remove">
-                          <a href="/cart?delete=<%=order.id%>"><i class="far fa-trash-alt"></i></a>
-                        </td>
-                        <td class="product-image">
-                          <img src="/img/products/<%= product.picture %>" alt="" />
-                        </td>
-                        <td class="product-name"><%= product.name %></td>
-                        <td class="product-price"><%= product.price %></td>
-                        <td class="product-quantity faText"> <%= order.count %> <%= product.per %></td>
-                        <td class="product-total product-price"><%= convertToPersian(Number(productPrice) * Number(order.count)) %></td>
-                      </tr>
+                    <% orders.forEach((order) => { %>
+                      <% const product = products.find(x => x.id == order.productId) %>
+                      <% const productPrice = convertToEnglish(product.price.replaceAll(",", "")) %>
 
-                      <% allPrice += Number(productPrice) * Number(order.count) %>
+                      <% if(product){ %>
 
-                    <% } %>
+                        <tr class="table-body-row">
+                          <td class="product-remove">
+                            <a href="/cart?delete=<%=order.id%>"><i class="far fa-trash-alt"></i></a>
+                          </td>
+                          <td class="product-image">
+                            <img src="/img/products/<%= product.picture %>" alt="" />
+                          </td>
+                          <td class="product-name"><%= product.name %></td>
+                          <td class="product-price"><%= product.price %></td>
+                          <td class="product-quantity faText"> <%= order.count %> <%= product.per %></td>
+                          <td class="product-total product-price"><%= convertToPersian(Number(productPrice) * Number(order.count)) %></td>
+                        </tr>
 
-                  <% }) %>
+                        <% allPrice += Number(productPrice) * Number(order.count) %>
 
-                </tbody>
-              </table>
+                      <% } %>
+
+                    <% }) %>
+
+                  </tbody>
+                </table>
+
+                <% }else{ %>
+
+                  <h1 class="faText err-basket">هیچ محصولی در سبد خرید شما نیست!</h1>
+
+                <% } %>
+
             </div>
           </div>
 
-          <% const sendPrice = about.find(x => x.name == "send").description %>
+          <% if(orders[0]){ %>
 
-          <div class="col-lg-4">
-            <div class="total-section">
-              <table class="total-table">
-                <thead class="total-table-head">
-                  <tr class="table-total-row">
-                    <th>قیمت</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="total-data">
-                    <td class="product-price"><%= convertToPersian(allPrice) %></td>
-                    <td><strong>قیمت کل: </strong></td>
-                  </tr>
-                  <tr class="total-data">
-                    <td class="product-price"><%= convertToPersian(sendPrice) %></td>
-                    <td><strong>ارسال: </strong></td>
-                  </tr>
-                  <tr class="total-data">
-                    <td class="product-price"><%= convertToPersian(Number(allPrice) + Number(sendPrice)) %></td>
-                    <td><strong>قیمت نهایی: </strong></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="cart-buttons">
-                <a href="/shop" class="boxed-btn">فروشگاه</a>
-                <a href="/checkout" class="boxed-btn black">پرداخت</a>
+
+            <% const sendPrice = about.find(x => x.name == "send").description %>
+
+            <div class="col-lg-4">
+              <div class="total-section">
+                <table class="total-table">
+                  <thead class="total-table-head">
+                    <tr class="table-total-row">
+                      <th>قیمت</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="total-data">
+                      <td class="product-price"><%= convertToPersian(allPrice) %></td>
+                      <td><strong>قیمت کل: </strong></td>
+                    </tr>
+                    <tr class="total-data">
+                      <td class="product-price"><%= convertToPersian(sendPrice) %></td>
+                      <td><strong>ارسال: </strong></td>
+                    </tr>
+                    <tr class="total-data">
+                      <td class="product-price"><%= convertToPersian(Number(allPrice) + Number(sendPrice)) %></td>
+                      <td><strong>قیمت نهایی: </strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="cart-buttons">
+                  <a href="/shop" class="boxed-btn">فروشگاه</a>
+                  <a href="/checkout" class="boxed-btn black">پرداخت</a>
+                </div>
               </div>
+
+              <!-- <div class="coupon-section">
+                <h3>کد تخفیف دارید ؟</h3>
+                <div class="coupon-form-wrap">
+                  <form action="index.html">
+                    <p><input type="text" placeholder="وارد کنید" /></p>
+                    <p><input type="submit" value="ثبت" /></p>
+                  </form>
+                </div>
+              </div> -->
             </div>
 
-            <!-- <div class="coupon-section">
-              <h3>کد تخفیف دارید ؟</h3>
-              <div class="coupon-form-wrap">
-                <form action="index.html">
-                  <p><input type="text" placeholder="وارد کنید" /></p>
-                  <p><input type="submit" value="ثبت" /></p>
-                </form>
-              </div>
-            </div> -->
-          </div>
+          <% } %>
+
         </div>
       </div>
     </div>
