@@ -1,7 +1,10 @@
 const express = require("express")
-const { isLoggedIn, isNotLoggedIn } = require("../helpers/auth")
+const { isLoggedIn, isNotLoggedIn, isUserAdmin } = require("../helpers/auth")
 const { body } = require("express-validator")
 const Router = express.Router()
+
+const adminController = require("../controllers/admin")
+Router.get("/admin", isLoggedIn, isUserAdmin, adminController.mainPage)
 
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
