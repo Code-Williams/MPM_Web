@@ -38,9 +38,10 @@ Router.get("/single-news", (req, res) => {
     res.render("single-news")
 })
 
-const { dashboardController, orders } = require("../controllers/dashboard")
+const { dashboardController, orders, addresses } = require("../controllers/dashboard")
 Router.get("/dashboard", isLoggedIn, dashboardController)
 Router.get("/dashboard/orders", isLoggedIn, orders)
+Router.get("/dashboard/addresses", isLoggedIn, addresses)
 
 const ShopController = require("../controllers/shop")
 Router.get("/products/:id", ShopController.single.get)

@@ -38,7 +38,29 @@ const orders = async (req, res) => {
     })
 }
 
+const addresses = async (req, res) => {
+    const about = await About.findAll()
+    const user = await User.findByPk(req.user.id)
+    let single = false
+    const addresses = await Address.findAll({
+        where : {
+            userId : req.user.id
+        }
+    })
+
+    if(req.query.id) single = req.query.id;
+
+    res.render("addresses", {
+        about,
+        user,
+        addresses,
+        single,
+        flash : req.flash()
+    })
+}
+
 module.exports = {
     dashboardController,
-    orders
+    orders,
+    addresses
 }
