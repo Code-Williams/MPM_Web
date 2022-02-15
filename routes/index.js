@@ -41,10 +41,11 @@ Router.get("/single-news", (req, res) => {
     res.render("single-news")
 })
 
-const { dashboardController, orders, addresses, newAddresses, newAddressPost } = require("../controllers/dashboard")
+const { dashboardController, orders, addresses, newAddresses, newAddressPost, addressesPost } = require("../controllers/dashboard")
 Router.get("/dashboard", isLoggedIn, dashboardController)
 Router.get("/dashboard/orders", isLoggedIn, orders)
 Router.get("/dashboard/addresses", isLoggedIn, addresses)
+Router.post("/dashboard/addresses", isLoggedIn, addressesPost)
 Router.get("/dashboard/addresses/new", isLoggedIn, newAddresses)
 Router.post("/dashboard/addresses/new", isLoggedIn, newAddressPost)
 

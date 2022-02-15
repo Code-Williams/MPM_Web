@@ -42,13 +42,15 @@ const addresses = async (req, res) => {
     const about = await About.findAll()
     const user = await User.findByPk(req.user.id)
     let single = false
-    const addresses = await Address.findAll({
+    let addresses = await Address.findAll({
         where : {
             userId : req.user.id
         }
     })
 
     if(req.query.id) single = req.query.id;
+
+    if(single) addresses = await Address.findByPk(single)
 
     res.render("addresses", {
         about,
@@ -57,6 +59,26 @@ const addresses = async (req, res) => {
         single,
         flash : req.flash()
     })
+}
+
+const addressesPost = async (req, res) => {
+
+    const address = await Address.findByPk(req.query.id)
+
+    if(address){
+        await address.update({
+            name : req.body.addressName,
+            address : req.body.address,
+            code : req.body.addressCode
+        })
+
+        req.flash("success", "آدرس با موفقیت ویرایش شد")
+        res.redirect("/dashboard/addresses")
+    }else{
+        req.flash("error", "آدرس مورد نظر پیدا نشد")
+        res.redirect("/dashboard/addresses")
+    }
+
 }
 
 const newAddresses = async (req, res) => {
@@ -87,5 +109,6 @@ module.exports = {
     orders,
     addresses,
     newAddresses,
-    newAddressPost
+    newAddressPost,
+    addressesPost
 }

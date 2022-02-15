@@ -43,6 +43,8 @@
     
     <link rel="stylesheet" href="/css/addresses.css">
 
+    <link rel="stylesheet" href="/css/newAddress.css">
+
   </head>
   <body>
     <!-- header -->
@@ -127,7 +129,26 @@
 
                 <% }else{ %>
           
-          
+                    <div class="address-handler">
+                        <div class="address-menu">
+                            <div class="address-menu-top">
+                                <h3 class="address-menu-title">ویرایش آدرس</h3>
+                            </div>
+            
+                            <div class="address-menu-bottom">
+                                <form action="/dashboard/addresses?id=<%= addresses.id %>&action=edit" method="post">
+                                    <input type="text" name="addressName" placeholder="نام آدرس" value="<%= addresses.name %>">
+                                    <input type="text" name="addressCode" placeholder="کد پستی" maxlength="10" value="<%= addresses.code %>">
+                                    <div class="textAreaHandler">
+                                        <textarea name="address" cols="30" rows="10" placeholder="آدرس کامل" maxlength="1000"><%= addresses.address %></textarea>
+                                    </div>
+                                    <div class="buttonAreaHandler">
+                                        <button type="submit">ثبت</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
           
                 <% } %>
 
