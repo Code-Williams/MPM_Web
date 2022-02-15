@@ -3,10 +3,16 @@ const User = require("../models/User")
 const Address = require("../models/Address")
 const Order = require("../models/Order")
 const Product = require("../models/Products")
+const Point = require("../models/Point")
 
 const dashboardController = async (req, res) => {
     const about = await About.findAll();
     const user = await User.findByPk(req.user.id);
+    const points = await Point.findOne({
+        where : {
+            userId : req.user.id
+        }
+    })
     const address = await Address.findAll({
         where : {
             userId : req.user.id
@@ -17,6 +23,7 @@ const dashboardController = async (req, res) => {
         about, 
         user, 
         address,
+        points,
         flash : req.flash()
     })
 }
