@@ -101,12 +101,18 @@ const addressesPost = async (req, res) => {
 }
 
 const newAddresses = async (req, res) => {
+    const points = await Point.findOne({
+        where : {
+            userId : req.user.id
+        }
+    })
     const about = await About.findAll()
     const user = await User.findByPk(req.user.id)
     
     res.render("newAddress", {
         about,
         user,
+        points,
         flash : req.flash()
     })
 }
