@@ -76,6 +76,15 @@
         <p class="menu-right-name">اطلاعات حساب</p>
       </a>
 
+      <% if(user.userRank == "admin"){ %>
+
+        <a class="menu-right-subItem" href="/admin">
+          <img src="" alt="" class="menu-right-image" />
+          <p class="menu-right-name">پنل ادمین</p>
+        </a>
+
+      <% } %>
+
       <a class="menu-right-subItem" href="/logout">
         <img src="" alt="" class="menu-right-image" />
         <p class="menu-right-name">خروج</p>

@@ -32,6 +32,11 @@ const orders = async (req, res) => {
     const about = await About.findAll();
     const user = await User.findByPk(req.user.id);
     const tab = req.query.activeTab || "in_progress"
+    const points = await Point.findOne({
+        where : {
+            userId : req.user.id
+        }
+    })
     const results = await Order.findAll({ where : {userId : req.user.id, status : tab} })
     const products = await Product.findAll();
 
@@ -41,6 +46,7 @@ const orders = async (req, res) => {
         tab,
         results,
         products,
+        points,
         flash : req.flash()
     })
 }
@@ -48,6 +54,11 @@ const orders = async (req, res) => {
 const addresses = async (req, res) => {
     const about = await About.findAll()
     const user = await User.findByPk(req.user.id)
+    const points = await Point.findOne({
+        where : {
+            userId : req.user.id
+        }
+    })
     let single = false
     let addresses = await Address.findAll({
         where : {
@@ -64,6 +75,7 @@ const addresses = async (req, res) => {
         user,
         addresses,
         single,
+        points,
         flash : req.flash()
     })
 }
