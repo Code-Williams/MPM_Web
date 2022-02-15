@@ -59,8 +59,33 @@ const addresses = async (req, res) => {
     })
 }
 
+const newAddresses = async (req, res) => {
+    const about = await About.findAll()
+    const user = await User.findByPk(req.user.id)
+    
+    res.render("newAddress", {
+        about,
+        user,
+        flash : req.flash()
+    })
+}
+
+const newAddressPost = async (req, res) => {
+    await Address.create({
+        userId : req.user.id,
+        name : req.body.addressName,
+        address : req.body.address,
+        code : req.body.addressCode
+    })
+
+    req.flash("success", "آدرس جدید با موفقیت ثبت شد")
+    res.redirect("/dashboard/addresses")
+}
+
 module.exports = {
     dashboardController,
     orders,
-    addresses
+    addresses,
+    newAddresses,
+    newAddressPost
 }
