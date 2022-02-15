@@ -17,7 +17,7 @@ const HomeController = async (req, res) => {
     let offers = offersMain
     let pinnedComments = pinnedCommentsMain
     let about = aboutMain
-    let news = [newsMain[0] || null, newsMain[1] || null, newsMain[2] || null]
+    let news = newsMain.slice(newsMain.length - 3, newsMain.length)
     let homeMainItems = homeMainItemsMain
 
     if(!offers[0]) offers = undefined
