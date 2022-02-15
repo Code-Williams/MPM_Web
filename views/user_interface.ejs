@@ -124,12 +124,14 @@
               <% if(address[0]){ %>
 
                 <% address.forEach(adr => { %>
+                  <% let endTxt = "" %>
+                  <% if(adr.address.length > 30) endTxt = "..." %>
 
                   <li class="information-address">
   
                     <div class="information-right-side information-sides">
   
-                        <p class="information-address-text"> <%= adr.address %> </p>
+                        <p class="information-address-text faText"> <%= adr.address.substr(0, 30) %><%= endTxt %> </p>
                         <p class="information-address-code"> <%= adr.code %> : کد پستی</p>  
                         
                     </div>
