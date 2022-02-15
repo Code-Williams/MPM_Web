@@ -27,3 +27,11 @@ label:not(:last-child){
 .shipping-address-detail{
     width: 100%;
 }
+
+.noIcon{
+    text-align: right !important;
+}
+
+.noIcon::before{
+    content: "" !important;
+}

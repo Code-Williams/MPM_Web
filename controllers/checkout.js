@@ -13,7 +13,7 @@ const checkout = async (req, res) => {
     })
     const orders = await Order.findAll({
         where :{
-            status : "در سبد خرید"
+            status : "in_basket"
         }
     });
 
