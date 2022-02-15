@@ -858,6 +858,7 @@
                       </button>
                     </div>
                   </div>
+
                   <!-- /.card-header -->
                   <div class="card-body p-0">
                     <ul class="products-list product-list-in-card pl-2 pr-2">
@@ -899,6 +900,83 @@
                   </div>
                   <!-- /.card-footer -->
                 </div>
+
+
+
+
+
+                <!-- PRODUCT LIST -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">بیشترین امتیازات</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="remove"
+                      >
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- /.card-header -->
+                  <div class="card-body p-0">
+                    <ul class="products-list product-list-in-card pl-2 pr-2">
+
+                      <% points.forEach(point => { %>
+                        <% const findUser = users.find(x => x.id == point.userId) %>
+
+
+                        <li class="item">
+                          <div class="product-img">
+                            <img
+                              src="/img/users/<%= findUser.picture %>"
+                              class="img-size-50"
+                            />
+                          </div>
+                          <div class="product-info">
+                            <a href="/admin/users/<%= point.userId %>" class="product-title" style="direction: rtl;">
+                              <%= findUser.username %>
+                              <span class="badge badge-warning float-right" style="direction: rtl;">
+                                <%= point.points %> امتیاز 
+                              </span>
+                            </a>
+                            <span class="product-description">
+                              <%= point.allPoints %> تمام امتیازات
+                            </span>
+                          </div>
+                        </li>
+
+
+                      <% }) %>
+
+                    </ul>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer text-center">
+                    <a href="/admin/products" class="uppercase"
+                      >تمام امتیازات</a
+                    >
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+
+
+
+
+
+
+
+
                 <!-- /.card -->
               </div>
               <!-- /.col -->

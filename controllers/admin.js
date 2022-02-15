@@ -1,11 +1,21 @@
 const User = require("../models/User")
 const Order = require("../models/Order")
 const Product = require("../models/Products")
+const Point = require("../models/Point")
 
 const mainPage = async (req, res) => {
-    const users = await User.findAll()
+    const users = await User.findAll({
+        order : [
+            ['id', 'ASC']
+        ]
+    })
     const orders = await Order.findAll()
     const products = await Product.findAll()
+    const points = await Point.findAll({
+        order : [
+            ['points', 'DESC']
+        ]
+    })
 
     const lastProducts = products.slice(products.length - 4, products.length)
     const lastOrders = orders.slice(orders.length - 7, orders.length)
@@ -18,7 +28,8 @@ const mainPage = async (req, res) => {
         products,
         lastProducts,
         lastOrders,
-        lastUsers
+        lastUsers,
+        points
     })
 }
 
