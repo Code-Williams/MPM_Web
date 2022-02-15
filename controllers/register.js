@@ -1,5 +1,6 @@
 const aboutMain = require("../models/About");
 const User = require("../models/User")
+const Point = require("../models/Point")
 const { validationResult } = require("express-validator")
 
 const get = async (req, res) => {
@@ -58,6 +59,12 @@ const post = async (req, res) => {
             lastName       :     req.body.lastName,
             number         :     req.body.number,
             userRank       :     "member"
+        })
+
+        const newPoint = await Point.create({
+            userId         :     newUser.id,
+            points         :     0,
+            allPoints      :     0
         })
 
         res.redirect("/login")
