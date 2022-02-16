@@ -54,10 +54,12 @@
     justify-content: space-around;
     flex-direction: column;
     width: 50%;
+    height: 100%;
 }
 
 .services-left input{
     max-width: 350px;
+    margin-bottom: 30px;
 }
 
 .services-left img{
