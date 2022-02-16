@@ -129,11 +129,29 @@ const newAddressPost = async (req, res) => {
     res.redirect("/dashboard/addresses")
 }
 
+const wallet = async (req, res) => {
+    const about = await About.findAll()
+    const user = await User.findByPk(req.user.id)
+    const points = await Point.findOne({
+        where : {
+            userId : req.user.id
+        }
+    })
+
+    res.render("wallet", {
+        about,
+        user,
+        points,
+        flash : req.flash()
+    })
+}
+
 module.exports = {
     dashboardController,
     orders,
     addresses,
     newAddresses,
     newAddressPost,
-    addressesPost
+    addressesPost,
+    wallet
 }
