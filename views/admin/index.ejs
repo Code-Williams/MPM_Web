@@ -82,9 +82,9 @@
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
                   <div class="info-box-content">
-                    <span class="info-box-text">سفارشات جدید</span>
+                    <span class="info-box-text">خدمات جدید</span>
                     <span class="info-box-number" style="direction: rtl;">
-                      <%= orders.filter(x => x.status == "in_progress").length %>
+                      <%= services.length %>
                       <small>عدد</small>
                     </span>
                   </div>
@@ -100,8 +100,11 @@
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
                   <div class="info-box-content">
-                    <span class="info-box-text">رضایت</span>
-                    <span class="info-box-number">100%</span>
+                    <span class="info-box-text">سفارشات جدید</span>
+                    <span class="info-box-number" style="direction: rtl;">
+                      <%= orders.filter(x => x.status == "in_progress").length %>
+                      <small>عدد</small>
+                    </span>
                   </div>
 
                   <span class="info-box-icon bg-danger elevation-1"
