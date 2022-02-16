@@ -54,17 +54,22 @@
 
             <h3 class="servicesMenu-header"> درخواست خدمات </h3> 
 
-            <form action="/services" method="post">
+            <form action="/services" method="post" style="height: 100%;">
 
               <div class="services-right">
-                <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= user.firstName %> <%= user.lastName %>" disabled>
-                <input type="text" name="number" placeholder="شماره تماس" value="<%= user.number %>" disabled>
-                <input type="text" name="email" placeholder="ایمیل" value="<%= user.email %>" disabled>
+                <div class="services-inp">
+
+                  <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= user.firstName %> <%= user.lastName %>" disabled>
+                  <input type="text" name="number" placeholder="شماره تماس" value="<%= user.number %>" disabled>
+                  <input type="text" name="email" placeholder="ایمیل" value="<%= user.email %>" disabled>
+
+                </div>
 
                 <button type="submit">ارسال درخواست</button>
               </div>
 
               <div class="services-left">
+                <img src="/img/Loading-pana.svg" alt="">
                 <input type="file" name="file">
               </div>
 
