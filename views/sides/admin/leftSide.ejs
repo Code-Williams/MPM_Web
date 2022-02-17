@@ -5,6 +5,11 @@
 
   .nav-icon{
     float: left;
+    display: flex;
+  }
+
+  .leftBadge{
+    margin-left: 10px;
   }
 </style>
 
@@ -63,20 +68,21 @@
         >
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="/admin" class="nav-link active">
+          <li class="nav-item <%= (active && active == "index") ? "menu-open" : "" %>">
+            <a href="/admin" class="nav-link <%= (active && active == "index") ? "active" : "" %>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p style="text-align: right;">داشبورد</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/admin/tickets" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item <%= (active && active == "ticket") ? "menu-open" : "" %>">
+            <a href="/admin/tickets" class="nav-link <%= (active && active == "ticket") ? "active" : "" %>">
+              <i class="nav-icon fas fa-th">
+                <% if(ticketCount > 0){ %>
+                  <span class="right badge badge-danger leftBadge" style="float: left;"><%= ticketCount %></span>
+                <% } %>
+              </i>
               <p style="text-align: right;">
                 تیکت ها
-                <% if(ticketCount > 0){ %>
-                  <span class="right badge badge-danger"><%= ticketCount %></span>
-                <% } %>
               </p>
             </a>
           </li>
