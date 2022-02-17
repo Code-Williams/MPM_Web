@@ -131,7 +131,6 @@ const newAddressPost = async (req, res) => {
 
 const wallet = async (req, res) => {
     const about = await About.findAll()
-    const user = await User.findByPk(req.user.id)
     const points = await Point.findOne({
         where : {
             userId : req.user.id
@@ -140,8 +139,24 @@ const wallet = async (req, res) => {
 
     res.render("wallet", {
         about,
-        user,
+        user : req.user,
         points,
+        flash : req.flash()
+    })
+}
+
+const accountInfo = async (req, res) => {
+    const about = await About.findAll()
+    const points = await Point.findAll({
+        where : {
+            userId : req.user.id
+        }
+    })
+
+    res.render("accountInfo", {
+        about,
+        points,
+        user : req.user,
         flash : req.flash()
     })
 }
@@ -153,5 +168,6 @@ module.exports = {
     newAddresses,
     newAddressPost,
     addressesPost,
-    wallet
+    wallet,
+    accountInfo
 }

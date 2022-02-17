@@ -274,6 +274,15 @@ p:last-child {
   color: rgb(236, 45, 45);
 }
 
+.fa-edit{
+  padding: 10px;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  color: rgb(63, 63, 63);
+  float: left;
+}
+
 .loader {
   bottom: 0;
   height: 100%;

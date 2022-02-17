@@ -1,0 +1,29 @@
+.menus *{
+    text-align: right;
+}
+
+#orders-main{
+    padding: 15px;
+}
+
+.right-title{
+    color: gray;
+}
+
+.menuTopInfo-right p{
+    font-size: 17px;
+    margin: 0;
+}
+
+.info-sub{
+    width: 50%;
+    float: right;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.informations-value{
+    float: right;
+    margin: 0;
+}
