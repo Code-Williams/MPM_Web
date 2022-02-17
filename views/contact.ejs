@@ -69,8 +69,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-5 mb-lg-0">
-            <div class="form-title">
-              <h2 class="faText">سوالی دارید ؟</h2>
+            <div class="form-title" style="text-align: right;">
+              <h2 class="faText">سوالی دارید ؟ 
+
+                <% for(const key in flash){ %>
+                      
+                  <span role="alert" class="flash flash-<%=key%>">
+                    <%= flash[key] %>
+                  </span>
+            
+                <% } %>
+                
+              </h2>
               <p>
                 <%= contact.find(x => x.name == "متن").description %>
               </p>
@@ -80,15 +90,29 @@
               <form
                 type="POST"
                 id="fruitkha-contact"
-                onSubmit="return valid_datas( this );"
+                action="/contact"
+                method="POST"
               >
                 <p>
-                  <input type="text" placeholder="نام" name="name" id="name" />
+                  <input 
+                    type="text" 
+                    placeholder="نام" 
+                    name="name" 
+                    id="name"
+                    <% if(user){ %>
+                      value="<%= user.firstName %> <%= user.lastName %>"
+                    <% } %>
+                    required
+                  />
+
                   <input
                     type="email"
                     placeholder="ایمیل"
                     name="email"
                     id="email"
+                    <% if(user){ %>
+                      value="<%= user.email %>"
+                    <% } %>
                     required
                   />
                 </p>
@@ -98,6 +122,9 @@
                     placeholder="تلفن"
                     name="phone"
                     id="phone"
+                    <% if(user){ %>
+                      value="<%= user.number %>"
+                    <% } %>
                     required
                   />
                   <input
@@ -118,8 +145,7 @@
                     required
                   ></textarea>
                 </p>
-                <input type="hidden" name="token" value="FsWga4&@f6aw" />
-                <p><input type="submit" value="ارسال" /></p>
+                  <p><input type="submit" value="ارسال" /></p>
               </form>
             </div>
           </div>

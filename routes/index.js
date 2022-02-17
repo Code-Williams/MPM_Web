@@ -5,6 +5,7 @@ const Router = express.Router()
 
 const adminController = require("../controllers/admin")
 Router.get("/admin", isLoggedIn, isUserAdmin, adminController.mainPage)
+Router.get("/admin/tickets", isLoggedIn, isUserAdmin, adminController.tickets)
 
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
@@ -19,7 +20,8 @@ const CheckoutController = require("../controllers/checkout")
 Router.get("/checkout", isLoggedIn, CheckoutController)
 
 const contactController = require("../controllers/contact")
-Router.get("/contact", contactController)
+Router.get("/contact", contactController.get)
+Router.post("/contact", contactController.post)
 
 const loginController = require("../controllers/login")
 Router.get("/login", isNotLoggedIn, loginController.get)
