@@ -147,7 +147,7 @@ const wallet = async (req, res) => {
 
 const accountInfo = async (req, res) => {
     const about = await About.findAll()
-    const points = await Point.findAll({
+    const points = await Point.findOne({
         where : {
             userId : req.user.id
         }
