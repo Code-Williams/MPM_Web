@@ -1,14 +1,15 @@
 <div class="menu-right">
-    <div class="menu-right-profile">
-      <div id="menu-right-profile-top">
+  <div class="menu-right-profile">
+    <div id="menu-right-profile-top">
         <% for(const key in flash){ %>
                       
           <span role="alert" class="flash flash-<%=key%>">
             <%= flash[key] %>
           </span>
-    
+
         <% } %>
-        <div class="profile-image-menu-handler">
+        
+      <div class="profile-image-menu-handler">
           <img
             src="/img/profile-image.svg"
             alt="Default profile picture"
@@ -36,8 +37,8 @@
         </ul>
       </div>
     </div>
-
-    <hr />
+    
+    <hr style="width : 100%;float: left;" />
 
     <div class="menu-right-items">
 
