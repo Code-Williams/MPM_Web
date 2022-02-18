@@ -68,6 +68,11 @@ const user = db.define('user', {
     picture : {
         type : DataTypes.STRING,
         defaultValue : null
+    },
+
+    birthday : {
+        type : DataTypes.DATE,
+        defaultValue : null
     }
 
 }, {
