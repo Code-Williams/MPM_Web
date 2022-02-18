@@ -26,4 +26,33 @@
 .informations-value{
     float: right;
     margin: 0;
+    transition: opacity 0.3s;
+}
+
+.fa-edit{
+    cursor: pointer;
+}
+
+.informations input{
+    outline: none;
+}
+
+.subInfo-inputs{
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.fa-edit{
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.noneBtn{
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.fa-times-circle{
+    cursor: pointer;
 }

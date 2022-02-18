@@ -43,6 +43,8 @@
 
     <link rel="stylesheet" href="/css/accountInfo.css">
     
+    <script src="/js/accountInfo.js" defer></script>
+
   </head>
   <body>
     <!-- header -->
@@ -58,49 +60,133 @@
 
             <div>
               <ul class="informations">
-                <li class="subInformations">
+                <li class="subInformations" id="nameChanger">
                   <p class="informations-name">نام و نام خانوادگی:</p>
                   <p class="informations-value"><%= user.firstName %> <%= user.lastName %></p>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input type="text" name="lastName" placeholder="نام خانوادگی" value="<%= user.lastName %>">
+                      <input type="text" name="firstName" placeholder="نام" value="<%= user.firstName %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+
                   <i class="fa fa-edit"></i>
                 </li>
   
-                <li class="subInformations no-border-left">
+                <li class="subInformations no-border-left" id="emailChanger">
                   <p class="informations-name">پست الکترونیک</p>
                   <p class="informations-value"><%= user.email %></p>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="email" placeholder="ایمیل" value="<%= user.email %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+
                   <i class="fa fa-edit"></i>
                 </li>
   
-                <li class="subInformations">
+                <li class="subInformations" id="numberChanger">
                   <p class="informations-name">شماره تلفن همراه</p>
                   <p class="informations-value"><%= user.number %></p>
                   <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="number" placeholder="شماره" value="<%= user.number %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
                 </li>
   
-                <li class="subInformations no-border-left">
+                <li class="subInformations no-border-left" id="codeChanger">
                   <p class="informations-name">کد ملی</p>
                   <p class="informations-value"><%= user.codeMelli %></p>
                   <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="codeMelli" placeholder="کد ملی" value="<%= user.codeMelli %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
                 </li>
   
-                <li class="subInformations">
+                <li class="subInformations" id="news">
                   <p class="informations-name">دریافت خبرنامه</p>
                   <p class="informations-value"><%= user.news %></p>
                   <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 50px;" type="radio" name="news" placeholder="دریافت خبرنامه" value="بله" id="news-yes">
+                      <label for="news-yes">بله</label>
+
+                      <input style="width: 50px;" type="radio" name="news" placeholder="دریافت خبرنامه" value="خیر" id="news-no">
+                      <label for="news-no">خیر</label>
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
                 </li>
   
-                <li class="subInformations no-border-left">
+                <li class="subInformations no-border-left" id="cardNumber">
                   <p class="informations-name">روش بازگشت وجه:</p>
                   <p class="informations-value"><%= user.cardNumber %></p>
                   <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="cardNumber" placeholder="شماره کارت" value="<%= user.cardNumber %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
                 </li>
 
-                <li class="subInformations">
+                <li class="subInformations no-border-bottom" id="birthday">
                   <p class="informations-name">تاریخ تولد</p>
-                  <p class="informations-value"><%= user.cardNumber %></p>
+                  <p class="informations-value"><%= user.birthday %></p>
                   <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="date" name="birthday" placeholder="تاریخ تولد" value="<%= user.birthday %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
                 </li>
 
-                <li class="subInformations no-border-left">
+                <li class="subInformations no-border-left no-border-bottom">
                   <p class="informations-name">رمز عبور</p>
                   <p class="informations-value">غیر قابل نمایش</p>
                   <i class="fa fa-edit"></i>
@@ -114,6 +200,7 @@
       </div>
 
     </div>
+
     <%- include("./sides/footer.ejs", {about}) %>
 
     <!-- jquery -->

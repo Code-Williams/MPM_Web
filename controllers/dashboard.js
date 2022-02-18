@@ -161,6 +161,22 @@ const accountInfo = async (req, res) => {
     })
 }
 
+const accountInfo_post = async (req, res) => {
+    const findUser = await User.findByPk(req.user.id)
+
+    if(req.body.lastName) findUser.update({ lastName : req.body.lastName })
+    if(req.body.firstName) findUser.update({ firstName : req.body.firstName })
+    if(req.body.number) findUser.update({ number : req.body.number })
+    if(req.body.email) findUser.update({ email : req.body.email })
+    if(req.body.codeMelli) findUser.update({ codeMelli : req.body.codeMelli })
+    if(req.body.news) findUser.update({ news : req.body.news })
+    if(req.body.cardNumber) findUser.update({ cardNumber : req.body.cardNumber })
+
+    req.flash("success", "با موفقیت آپدیت شد")
+
+    res.redirect("/dashboard/information")
+}
+
 module.exports = {
     dashboardController,
     orders,
@@ -169,5 +185,6 @@ module.exports = {
     newAddressPost,
     addressesPost,
     wallet,
-    accountInfo
+    accountInfo,
+    accountInfo_post
 }

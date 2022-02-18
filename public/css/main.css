@@ -283,6 +283,24 @@ p:last-child {
   float: left;
 }
 
+.fa-check{
+  padding: 10px;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  color: rgb(3, 194, 3);
+  float: left;
+}
+
+.fa-times-circle{
+  padding: 10px;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  color: rgb(245, 80, 80);
+  float: left;
+}
+
 .loader {
   bottom: 0;
   height: 100%;
@@ -2771,4 +2789,8 @@ table.order-details tbody td {
   border-radius: 7px;
   width: 95%;
   min-height: 400px;
+}
+
+.no-border-bottom{
+  border-bottom: none !important;
 }
