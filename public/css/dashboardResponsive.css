@@ -26,6 +26,14 @@
     .menuTopInfo-left{
         width: 95%;
     }
+
+    #orders-handler{
+        margin-bottom: 20px;
+    }
+
+    .address-handler{
+        margin-bottom: 20px;
+    }
 }
 
 @media only screen and (max-width: 991px){
@@ -69,7 +77,8 @@
         border-bottom: 0 !important;
     }
 
-    #orders-handler{
-        margin-bottom: 20px;
+    .address-menu-bottom textarea{
+        width: 100%;
+        margin: 0;
     }
 }
