@@ -312,3 +312,7 @@ input.optionsBtn{
   font-size: 14px;
   margin-right: 10px;
 }
+
+.informations-value{
+  overflow: hidden;
+}

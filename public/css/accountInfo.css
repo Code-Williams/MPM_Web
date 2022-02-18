@@ -6,6 +6,10 @@
     padding: 15px;
 }
 
+#orders-handler{
+    margin-bottom: 20px;
+}
+
 .right-title{
     color: gray;
 }
