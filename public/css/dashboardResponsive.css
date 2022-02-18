@@ -68,4 +68,8 @@
     .subInformations:not(:last-child){
         border-bottom: 0 !important;
     }
+
+    #orders-handler{
+        margin-bottom: 20px;
+    }
 }
