@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mr Part Maker WebSite" />
+
+    <!-- title -->
+    <title>MrParkMaker - Dashboard</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="/css/animate.css" />
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <link rel="stylesheet" href="/css/user_interface.css" />
+
+    <link rel="stylesheet" href="/css/header.css">
+
+    <link rel="stylesheet" href="/css/dashboardResponsive.css">
+    
+  </head>
+  <body>
+    <!-- header -->
+    <%- include('../sides/header.ejs', {user}) %>
+    <div style="display: block; width: 100%; height: 130px;"></div>
+
+    <div class="menus">
+      <!-- Right side menu -->
+      <%- include("../sides/dashboard-right.ejs", {points, user}) %>
+
+      <div id="menuTopInfo">
+        <div class="menuTopInfo-right menuTopInfo">
+          <p class="menuTopInfo-title">اطلاعات شخصی</p>
+          <div class="menuTopInfo-sub">
+            <ul class="informations">
+              <li class="subInformations">
+                <p class="informations-name">نام و نام خانوادگی:</p>
+                <p class="informations-value"><%= user.firstName %> <%= user.lastName %></p>
+              </li>
+
+              <li class="subInformations no-border-left">
+                <p class="informations-name">پست الکترونیک</p>
+                <p class="informations-value"><%= user.email %></p>
+              </li>
+
+              <li class="subInformations">
+                <p class="informations-name">شماره تلفن همراه</p>
+                <p class="informations-value"><%= user.number %></p>
+              </li>
+
+              <li class="subInformations no-border-left">
+                <p class="informations-name">کد ملی</p>
+                <p class="informations-value"><%= user.codeMelli %></p>
+              </li>
+
+              <li class="subInformations">
+                <p class="informations-name">دریافت خبرنامه</p>
+                <p class="informations-value"><%= user.news %></p>
+              </li>
+
+              <li class="subInformations no-border-left">
+                <p class="informations-name">روش بازگشت وجه:</p>
+                <p class="informations-value"><%= user.cardNumber %></p>
+              </li>
+
+              <li class="editInformation">
+                <p class="editInformation-text">ویرایش اطلاعات شخصی</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menuTopInfo-left menuTopInfo">
+          <p class="menuTopInfo-title">آدرس ها</p>
+          <div class="menuTopInfo-sub">
+            <ul class="informations-address">
+
+              <script>
+                function addListener(id){
+                  var dotted = document.getElementById(`dotted-${id}`);
+                  var menu = document.getElementById(`dotted-menu-${id}`)
+                  dotted.addEventListener("click", () => {
+                    if(menu.style.display == 'none'){
+                      menu.style.display = 'block';
+                    }else{
+                      menu.style.display = 'none';
+                    }
+                  })
+
+                  window.addEventListener("mouseup", function(event){
+                    var container = document.getElementById(`dotted-menu-${id}`);
+                    if (container === null) return;
+
+                    if (event.target !== menu && !dotted.contains(event.target)) {
+                      container.style.display = "none";
+                    }
+                  });
+                }
+              </script>
+
+              <% if(address[0]){ %>
+
+                <% address.forEach(adr => { %>
+                  <% let endTxt = "" %>
+                  <% if(adr.address.length > 30) endTxt = "..." %>
+
+                  <li class="information-address">
+  
+                    <div class="information-right-side information-sides">
+  
+                        <p class="information-address-text faText"> <%= adr.address.substr(0, 30) %><%= endTxt %> </p>
+                        <p class="information-address-code"> <%= adr.code %> : کد پستی</p>  
+                        
+                    </div>
+  
+                    <div class="information-left-side information-sides">
+  
+                      <div class="rightOptions">
+                        <div class="dotted-btn" id="dotted-<%=adr.id%>">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+  
+                        <div class="options" style="display: none;" id="dotted-menu-<%=adr.id%>">
+                          <form action="/address?id=<%=adr.id%>&redirect=/dashboard" method="post">
+                            <input type="submit" name="edit" value="ویرایش" class="edit-address optionsBtn"></input>
+                            <input type="submit" name="delete" value="حذف" class="delete-address optionsBtn"></input>
+                          </form>
+                        </div>
+                      </div>
+  
+                    </div>
+                    
+  
+                  </li>
+  
+                  <script> addListener("<%=adr.id%>") </script>
+  
+                <% }) %>
+
+              <% }else{ %>
+
+                <div class="address-err">آدرسی یافت نشد. <a href="/dashboard/addresses">اضافه کنید.</a></div>
+
+              <% } %>
+
+              
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+  </div>
+    <%- include("../sides/footer.ejs", {about}) %>
+
+    <!-- jquery -->
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="/js/jquery.meanmenu.min.js"></script>
+    <!-- main js -->
+    <script src="/js/main.js"></script>
+
+    <script src="/js/sticker.js"></script>
+  </body>
+</html>

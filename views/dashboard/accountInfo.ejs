@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mr Part Maker WebSite" />
+
+    <!-- title -->
+    <title>MrParkMaker - Dashboard</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="/css/animate.css" />
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <link rel="stylesheet" href="/css/user_interface.css" />
+
+    <link rel="stylesheet" href="/css/header.css">
+
+    <link rel="stylesheet" href="/css/accountInfo.css">
+    
+    <script src="/js/accountInfo.js" defer></script>
+
+  </head>
+  <body>
+    <style>
+      @media only screen and (max-width: 1365px) and (min-width: 991px){
+        .menus{
+          height: 600px !important;
+        }
+      }
+    </style>
+
+    <!-- header -->
+    <%- include('../sides/header.ejs', {user}) %>
+    <div style="display: block; width: 100%; height: 130px;"></div>
+
+    <div class="menus">
+      <!-- Right side menu -->
+      <%- include("../sides/dashboard-right.ejs", {points, user}) %>
+
+      <div id="orders-handler">
+        <div id="orders-main">
+
+            <div>
+              <ul class="informations">
+                <li class="subInformations" id="nameChanger">
+                  <p class="informations-name">نام و نام خانوادگی:</p>
+                  <p class="informations-value"><%= user.firstName %> <%= user.lastName %></p>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input type="text" name="lastName" placeholder="نام خانوادگی" value="<%= user.lastName %>">
+                      <input type="text" name="firstName" placeholder="نام" value="<%= user.firstName %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+
+                  <i class="fa fa-edit"></i>
+                </li>
+  
+                <li class="subInformations no-border-left" id="emailChanger">
+                  <p class="informations-name">پست الکترونیک</p>
+                  <p class="informations-value"><%= user.email %></p>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="email" placeholder="ایمیل" value="<%= user.email %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+
+                  <i class="fa fa-edit"></i>
+                </li>
+  
+                <li class="subInformations" id="numberChanger">
+                  <p class="informations-name">شماره تلفن همراه</p>
+                  <p class="informations-value"><%= user.number %></p>
+                  <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="number" placeholder="شماره" value="<%= user.number %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+                </li>
+  
+                <li class="subInformations no-border-left" id="codeChanger">
+                  <p class="informations-name">کد ملی</p>
+                  <p class="informations-value"><%= user.codeMelli %></p>
+                  <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="codeMelli" placeholder="کد ملی" value="<%= user.codeMelli %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+                </li>
+  
+                <li class="subInformations" id="news">
+                  <p class="informations-name">دریافت خبرنامه</p>
+                  <p class="informations-value"><%= user.news %></p>
+                  <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 50px;" type="radio" name="news" placeholder="دریافت خبرنامه" value="بله" id="news-yes">
+                      <label for="news-yes">بله</label>
+
+                      <input style="width: 50px;" type="radio" name="news" placeholder="دریافت خبرنامه" value="خیر" id="news-no">
+                      <label for="news-no">خیر</label>
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+                </li>
+  
+                <li class="subInformations no-border-left" id="cardNumber">
+                  <p class="informations-name">روش بازگشت وجه:</p>
+                  <p class="informations-value"><%= user.cardNumber %></p>
+                  <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="text" name="cardNumber" placeholder="شماره کارت" value="<%= user.cardNumber %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+                </li>
+
+                <li class="subInformations no-border-bottom" id="birthday">
+                  <p class="informations-name">تاریخ تولد</p>
+                  <p class="informations-value"><%= user.birthday %></p>
+                  <i class="fa fa-edit"></i>
+
+                  <div class="subInfo-inputs" style="display: none;">
+                    <form action="/dashboard/information" method="post">
+                      <input style="width: 300px;" type="date" name="birthday" placeholder="تاریخ تولد" value="<%= user.birthday %>">
+
+                      <button class="noneBtn" type="submit">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <!-- <i class="fa fa-times-circle"></i> -->
+                    </form>
+                  </div>
+                </li>
+
+                <li class="subInformations no-border-left no-border-bottom">
+                  <p class="informations-name">رمز عبور</p>
+                  <p class="informations-value">غیر قابل نمایش</p>
+                  <i class="fa fa-edit"></i>
+                </li>
+
+              </ul>
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <%- include("../sides/footer.ejs", {about}) %>
+
+    <!-- jquery -->
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="/js/jquery.meanmenu.min.js"></script>
+    <!-- main js -->
+    <script src="/js/main.js"></script>
+
+    <script src="/js/sticker.js"></script>
+  </body>
+</html>
