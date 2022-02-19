@@ -19,7 +19,7 @@ const dashboardController = async (req, res) => {
         }
     }) || []
 
-    res.render("user_interface", {
+    res.render("dashboard/index", {
         about, 
         user, 
         address,
@@ -40,7 +40,7 @@ const orders = async (req, res) => {
     const results = await Order.findAll({ where : {userId : req.user.id, status : tab} })
     const products = await Product.findAll();
 
-    res.render("dashboardOrder", {
+    res.render("dashboard/order", {
         about,
         user,
         tab,
@@ -70,7 +70,7 @@ const addresses = async (req, res) => {
 
     if(single) addresses = await Address.findByPk(single)
 
-    res.render("addresses", {
+    res.render("dashboard/addresses", {
         about,
         user,
         addresses,
@@ -109,7 +109,7 @@ const newAddresses = async (req, res) => {
     const about = await About.findAll()
     const user = await User.findByPk(req.user.id)
     
-    res.render("newAddress", {
+    res.render("dashboard/newAddress", {
         about,
         user,
         points,
@@ -137,7 +137,7 @@ const wallet = async (req, res) => {
         }
     })
 
-    res.render("wallet", {
+    res.render("dashboard/wallet", {
         about,
         user : req.user,
         points,
@@ -153,7 +153,7 @@ const accountInfo = async (req, res) => {
         }
     })
 
-    res.render("accountInfo", {
+    res.render("dashboard/accountInfo", {
         about,
         points,
         user : req.user,
