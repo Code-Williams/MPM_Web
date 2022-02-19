@@ -66,7 +66,7 @@ const addressController = require("../controllers/addrss")
 Router.post("/address", addressController.post)
 
 const servicesController = require("../controllers/services")
-Router.get("/services", isLoggedIn, servicesController.get)
+Router.get("/services", servicesController.get)
 
 const errController = require("../controllers/error")
 Router.get("/*", errController)
