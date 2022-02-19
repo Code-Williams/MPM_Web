@@ -74,6 +74,7 @@
               <p style="text-align: right;">داشبورد</p>
             </a>
           </li>
+
           <li class="nav-item <%= (active && active == "ticket") ? "menu-open" : "" %>">
             <a href="/admin/tickets" class="nav-link <%= (active && active == "ticket") ? "active" : "" %>">
               <i class="nav-icon fas fa-th">
@@ -87,7 +88,13 @@
             </a>
           </li>
 
-          
+          <li class="nav-item <%= (active && active == "users") ? "menu-open" : "" %>">
+            <a href="/admin/users" class="nav-link <%= (active && active == "users") ? "active" : "" %>">
+              <i class="nav-icon fas fa-users"></i>
+              <p style="text-align: right;">کاربران</p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

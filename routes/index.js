@@ -6,6 +6,7 @@ const Router = express.Router()
 const adminController = require("../controllers/admin")
 Router.get("/admin", isLoggedIn, isUserAdmin, adminController.mainPage)
 Router.get("/admin/tickets", isLoggedIn, isUserAdmin, adminController.tickets)
+Router.get("/admin/users", isLoggedIn, adminController.users)
 
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
