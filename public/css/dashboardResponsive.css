@@ -81,4 +81,12 @@
         width: 100%;
         margin: 0;
     }
+
+    .menuTopInfo-sub{
+        height: auto;
+    }
+    
+    #address-menu{
+        height: 350px;
+    }
 }
