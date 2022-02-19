@@ -8,15 +8,23 @@ const Services = db.define("services", {
         autoIncrement : true
     },
 
-    userId : {
-        type : DataTypes.STRING,
-    },
-
     file : {
         type : DataTypes.STRING,
     },
 
     description : {
+        type : DataTypes.STRING,
+    },
+
+    username : {
+        type : DataTypes.STRING,
+    },
+
+    number : {
+        type : DataTypes.STRING,
+    },
+
+    email : {
         type : DataTypes.STRING,
     }
 }, {
