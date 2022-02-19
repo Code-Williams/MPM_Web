@@ -35,7 +35,7 @@ const checkout = async (req, res) => {
         return str
     };
 
-    res.render("checkout", {
+    res.render("shop/checkout", {
         about,
         orders,
         products,

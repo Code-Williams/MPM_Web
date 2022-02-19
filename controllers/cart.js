@@ -53,7 +53,7 @@ const cart = async (req, res) => {
         return str
     };
 
-    res.render("cart", {about, orders, user : req.user, products, convertToEnglish, convertToPersian, offerCodes})
+    res.render("shop/cart", {about, orders, user : req.user, products, convertToEnglish, convertToPersian, offerCodes})
 }
 
 module.exports = cart
