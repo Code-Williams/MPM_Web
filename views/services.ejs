@@ -39,6 +39,7 @@
     <!-- responsive -->
     <link rel="stylesheet" href="/css/responsive.css" />
     <link rel="stylesheet" href="/css/services.css" >
+    <link rel="stylesheet" href="/css/servicesResponsive.css">
   </head>
   <body>
 
@@ -59,20 +60,20 @@
               <div class="services-right">
                 <div class="services-inp">
 
-                  <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= (user) ? `${user.firstName} ${user.lastName}` : '' %>">
-                  <input type="text" name="number" placeholder="شماره تماس" value="<%= (user) ? user.number : '' %>">
-                  <input type="text" name="email" placeholder="ایمیل" value="<%= (user) ? user.email : '' %>">
+                  <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= (user) ? `${user.firstName} ${user.lastName}` : '' %>" required>
+                  <input type="text" name="number" placeholder="شماره تماس" value="<%= (user) ? user.number : '' %>" required>
+                  <input type="text" name="email" placeholder="ایمیل" value="<%= (user) ? user.email : '' %>" required>
 
                 </div>
 
-                <input type="file" name="file" class="uploadFile">
+                <input type="file" name="file" class="uploadFile" id="file2" style="display: none;" required>
 
                 <button type="submit">ارسال درخواست</button>
               </div>
 
               <div class="services-left">
                 <img src="/img/Loading-pana.svg" alt="">
-                <input type="file" name="file" class="uploadFile">
+                <input type="file" name="file" class="uploadFile" required>
               </div>
 
             </form>
