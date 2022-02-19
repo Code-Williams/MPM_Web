@@ -56,7 +56,7 @@
                     <% users.forEach(user => { %>
 
                       <tr>
-                        <td><%= user.id %></td>
+                        <td><a href="/admin/users/<%= user.id %>"><%= user.id %></a></td>
                         <td><%= user.username %></td>
                         <td><%= user.firstName %> <%= user.lastName %></td>
                         <td><%= user.email %></td>
