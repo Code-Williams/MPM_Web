@@ -59,9 +59,9 @@
               <div class="services-right">
                 <div class="services-inp">
 
-                  <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= user.firstName %> <%= user.lastName %>" disabled>
-                  <input type="text" name="number" placeholder="شماره تماس" value="<%= user.number %>" disabled>
-                  <input type="text" name="email" placeholder="ایمیل" value="<%= user.email %>" disabled>
+                  <input type="text" name="name"  placeholder="نام و نام خانوادگی" value="<%= (user) ? `${user.firstName} ${user.lastName}` : '' %>">
+                  <input type="text" name="number" placeholder="شماره تماس" value="<%= (user) ? user.number : '' %>">
+                  <input type="text" name="email" placeholder="ایمیل" value="<%= (user) ? user.email : '' %>">
 
                 </div>
 
