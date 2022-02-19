@@ -46,7 +46,7 @@
                   <% if(!user){ %>
 
                     <a href="/login" class="sign-items">ورود</a>
-                    /
+                    <p class="slash-sign">/</p>
                     <a href="/register" class="sign-items">ثبت نام</a>
 
                   <% }else{ %>
@@ -56,14 +56,18 @@
                   <%}%>
 
                   <a
-                    class="shopping-cart iconTopmobile-hide search-bar-icon iconTop"
-                    href="/cart"
-                    ><i class="fas fa-shopping-cart">
-                      <% if(user && user.products > 0){ %>
+                  class="shopping-cart iconTopmobile-hide search-bar-icon iconTop"
+                  id="cartTXT"
+                  href="/cart"
+                  >
+                  <i class="fas fa-shopping-cart" id="basket-main">
+                    <% if(user && user.products > 0){ %>
                         <p class="productCount"><%= user.products %></p>
-                      <% } %>
-                    </i
-                  ></a>
+                        <% } %>
+                        
+                      </i>
+                      <a href="/cart" id="basket-text">سبد خرید</a>
+                  </a>
                   <a class="mobile-hide search-bar-icon iconTop" href="#"
                     ><i class="fas fa-search"></i
                   ></a>
