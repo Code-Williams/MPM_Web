@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1200px){
+    .top-list-item-top img{
+        width : 250px !important;
+    }
+}
+
 @media only screen and (max-width: 1365px) and (min-width : 991px) {
 
     .footer-area{
@@ -35,9 +41,9 @@
         margin-bottom: 20px;
     }
 
-    .hero-area {
+    /* .hero-area {
         height: 1500px !important;
-    }
+    } */
 }
 
 @media only screen and (max-width: 991px){
@@ -86,9 +92,9 @@
         margin: 0;
     }
 
-    .hero-area {
+    /* .hero-area {
         height: 800px !important;
-    }
+    } */
 
     .top-list-item-top img{
         display: none;
@@ -131,5 +137,9 @@
 
     .forgot{
         height: 6px !important;
+    }
+
+    #passwordLogin{
+        width : 95%;
     }
 }

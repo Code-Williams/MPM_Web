@@ -2703,7 +2703,7 @@ table.order-details tbody td {
     width: 92%;
   }
 
-  .hero-area {
+  .index-hero {
     height: 1500px;
   }
 }
@@ -2806,4 +2806,8 @@ table.order-details tbody td {
 #basket-text{
   float: left !important;
   display: none;
+}
+
+.forgot{
+  height: auto !important;
 }
