@@ -2811,3 +2811,38 @@ table.order-details tbody td {
 .forgot{
   height: auto !important;
 }
+
+.uploadFile{
+  font-size: 11px !important;
+  border: 1px solid #f28123; 
+  padding: 5px 10px; 
+  width: 300px; 
+  border-radius: 5px;
+}
+
+.uploadFile::-webkit-file-upload-button{
+  visibility: hidden;
+}
+
+.uploadFile::before{
+  content: 'فایل را انتخاب کنید';
+  display: inline-block;
+  border: 1px solid #f28123;
+  background: #fff9f4;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  font-size: 10pt;
+  color: #a05415;
+}
+
+.uploadFile:hover::before {
+  border-color: #f59d53;
+}
+.uploadFile:active::before {
+  background: -webkit-linear-gradient(top, #fcb983, #fac193);
+}
