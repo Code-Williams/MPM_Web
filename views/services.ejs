@@ -53,7 +53,17 @@
 
         <div class="servicesMenu">
 
-            <h3 class="servicesMenu-header"> درخواست خدمات </h3> 
+            <h3 class="servicesMenu-header"> درخواست خدمات 
+
+              <% for(const key in flash){ %>
+                          
+                <span role="alert" class="flash">
+                  <%= flash[key] %>
+                </span>
+
+              <% } %>
+
+            </h3> 
 
             <form action="/services" method="post" style="height: 100%;" enctype="multipart/form-data">
 

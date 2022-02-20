@@ -12,13 +12,22 @@ const get = async (req, res) => {
 }
 
 const post = async (req, res) => {
-    await Service.create({
-        file : req.file.filename,
-        username : req.body.name,
-        number : req.body.number,
-        email : req.body.email
-    })
-    req.flash("success", "فایل با موفقیت آپلود شد. مدیریت سایت به زودی با شما تماس خواهند گرفت.")
+    if(req.file){
+        if(req.file.filename){
+
+            await Service.create({
+                file : req.file.filename,
+                username : req.body.name,
+                number : req.body.number,
+                email : req.body.email
+            })
+            req.flash("success", "فایل با موفقیت آپلود شد. مدیریت سایت به زودی با شما تماس خواهند گرفت.")
+            res.redirect("/services")
+            return
+        }
+    }
+
+    req.flash("error", "لطفا فایل مورد نظر را انتخاب کنید")
     res.redirect("/services")
 }
 
