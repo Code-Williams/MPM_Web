@@ -4,6 +4,7 @@ const PinnedComments = require("../models/PinnedComments")
 const About = require("../models/About")
 const News = require("../models/News")
 const HomeMainItems = require("../models/HomeMainItems");
+const { format } = require("date-fns")
 
 const HomeController = async (req, res) => {
     const homeTopItemsMain = await HomeTopObjs.findAll();
@@ -33,7 +34,8 @@ const HomeController = async (req, res) => {
         about, 
         news, 
         homeMainItems, 
-        user : req.user
+        user : req.user,
+        format
     });
 }
 

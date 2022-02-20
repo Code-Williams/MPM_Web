@@ -2846,3 +2846,7 @@ table.order-details tbody td {
 .uploadFile:active::before {
   background: -webkit-linear-gradient(top, #fcb983, #fac193);
 }
+
+.author{
+  float: left;
+}

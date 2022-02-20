@@ -337,7 +337,7 @@
                     <p class="blog-meta">
                       <span class="author"><i class="fas fa-user"></i><%= singleNews.writer %></span>
                       <span class="date"
-                      ><i class="fas fa-calendar"></i><%= singleNews.time %></span
+                      ><i class="fas fa-calendar"></i><%= format(new Date(singleNews.time), "yyyy/mm/dd") %></span
                       >
                     </p>
                     <p class="excerpt"><%= singleNews.description %></p>
