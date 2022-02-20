@@ -10,8 +10,9 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, "../public/uploads"))
     },
     filename : function (req, file, cb){
-        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random * 1E9)
-        cb(null, `${file.fieldname}-${uniqueSuffix}.${file.originalname.split(".")[file.originalname.split(".").length - 1]}`)
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9)
+        const fileName = file.originalname.split(".")
+        cb(null, `${file.fieldname}-${uniqueSuffix}.${fileName[fileName.length - 1]}`)
     }
 })
 const upload = multer({ storage })
@@ -85,6 +86,7 @@ Router.get("/services", servicesController.get)
 Router.post("/services", upload.single('file'), servicesController.post)
 
 const errController = require("../controllers/error")
+const { compareSync } = require("bcrypt")
 Router.get("/*", errController)
 
 
