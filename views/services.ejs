@@ -55,7 +55,7 @@
 
             <h3 class="servicesMenu-header"> درخواست خدمات </h3> 
 
-            <form action="/services" method="post" style="height: 100%;">
+            <form action="/services" method="post" style="height: 100%;" enctype="multipart/form-data">
 
               <div class="services-right">
                 <div class="services-inp">
@@ -66,14 +66,14 @@
 
                 </div>
 
-                <input type="file" name="file" class="uploadFile" id="file2" style="display: none;" required>
+                <input type="file" name="file" class="uploadFile" id="file2" style="display: none;">
 
                 <button type="submit">ارسال درخواست</button>
               </div>
 
               <div class="services-left">
                 <img src="/img/Loading-pana.svg" alt="">
-                <input type="file" name="file" class="uploadFile" required>
+                <input type="file" name="file" class="uploadFile">
               </div>
 
             </form>

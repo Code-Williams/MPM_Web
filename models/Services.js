@@ -14,6 +14,7 @@ const Services = db.define("services", {
 
     description : {
         type : DataTypes.STRING,
+        defaultValue : ""
     },
 
     username : {
