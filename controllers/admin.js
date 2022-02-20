@@ -78,8 +78,22 @@ const users = async (req, res) => {
     })
 }
 
+const services = async (req, res) => {
+    const ticketCount = await Ticket.count()
+    const services = await Service.findAll()
+
+    res.render("admin/services", {
+        user : req.user,
+        active : "services",
+        flash : req.flash(),
+        services,
+        ticketCount
+    })
+}
+
 module.exports = {
     mainPage,
     tickets,
-    users
+    users,
+    services
 }
