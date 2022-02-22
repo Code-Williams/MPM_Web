@@ -6,10 +6,19 @@ const Order = require("../models/Order")
 const all = async (req, res) => {
     const about = await aboutMain.findAll();
     const products = await Products.findAll();
+    let userOrders = [];
+    if(req.user){
+        userOrders = await Order.findAll({
+            where : {
+                userId : req.user.id
+            }
+        })
+    }
 
     res.render("shop/shop", {
         about, 
         products,
+        userOrders,
         user : req.user
     })
 }

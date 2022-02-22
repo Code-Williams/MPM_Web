@@ -82,7 +82,17 @@
                 <p class="product-price"><span>هر <%= product.per %></span> <%= product.price %></p>
                 <form action="/products/<%= product.id %>" method="post">
 
-                  <%- include("../sides/addToCart.ejs") %>
+                  <% const isUserHaveThis = userOrders.find(x => x.productId == product.id) %>
+                  <% if(isUserHaveThis){ %>
+
+                    <button type="submit" class="btn btn-success" disabled>
+                      <i class="fas fa-check"></i>
+                      در سبد خرید شما موجود است
+                    </button>
+
+                  <% }else{ %>
+                    <%- include("../sides/addToCart.ejs") %>
+                  <% } %>
 
                 </form>
               </div>
