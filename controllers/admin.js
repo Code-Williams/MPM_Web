@@ -4,6 +4,7 @@ const Product = require("../models/Products")
 const Point = require("../models/Point")
 const Service = require("../models/Services")
 const Ticket = require("../models/Ticket")
+const convert = require("../utils/convert")
 
 const mainPage = async (req, res) => {
     const users = await User.findAll({
@@ -91,9 +92,24 @@ const services = async (req, res) => {
     })
 }
 
+const products = async (req, res) => {
+    const products = await Product.findAll()
+    const ticketCount = await Ticket.count()
+
+    res.render("admin/products", {
+        user : req.user,
+        active : "products",
+        flash : req.flash(),
+        products,
+        ticketCount,
+        convert     
+    })
+} 
+
 module.exports = {
     mainPage,
     tickets,
     users,
-    services
+    services,
+    products
 }
