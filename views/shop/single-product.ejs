@@ -75,7 +75,7 @@
           <div class="col-md-7">
             <div class="single-product-content">
               <h3><%= product.name %></h3>
-              <p class="single-product-pricing"><span>هر <%=product.per%></span> <%= product.price %> تومان</p>
+              <p class="single-product-pricing"><span>هر <%=product.per%></span> <%= convert.toPersian(product.price) %> تومان</p>
               <p> <%= product.description %> </p>
 
               <div class="single-product-form">
