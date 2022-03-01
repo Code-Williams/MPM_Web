@@ -79,14 +79,14 @@
                   /></a>
                 </div>
                 <h3><%= product.name %></h3>
-                <p class="product-price"><span>هر <%= product.per %></span> <%= product.price %></p>
+                <p class="product-price"><span>هر <%= product.per %></span> <%= convert.toPersian(product.price) %></p>
                 <form action="/products/<%= product.id %>" method="post">
 
                   <% const isUserHaveThis = userOrders.find(x => x.productId == product.id) %>
                   <% if(isUserHaveThis){ %>
 
                     <button type="submit" class="btn btn-success" disabled>
-                      <i class="fas fa-check"></i>
+                      <i class="fas fa-check" style="padding: 0; height: 16px; text-shadow: 0 0 5px black;"></i>
                       در سبد خرید شما موجود است
                     </button>
 

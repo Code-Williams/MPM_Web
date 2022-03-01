@@ -2,6 +2,7 @@ const aboutMain = require("../models/About");
 const Products = require("../models/Products");
 const User = require("../models/User")
 const Order = require("../models/Order")
+const convert = require("../utils/convert")
 
 const all = async (req, res) => {
     const about = await aboutMain.findAll();
@@ -19,6 +20,7 @@ const all = async (req, res) => {
         about, 
         products,
         userOrders,
+        convert,
         user : req.user
     })
 }
@@ -30,6 +32,7 @@ const singleGet = async (req, res) => {
     res.render("shop/single-product", {
         about, 
         product,
+        convert,
         user : req.user
     })
 }
