@@ -22,6 +22,7 @@ Router.get("/admin", isLoggedIn, isUserAdmin, adminController.mainPage)
 Router.get("/admin/tickets", isLoggedIn, isUserAdmin, adminController.tickets)
 Router.get("/admin/users", isLoggedIn, isUserAdmin, adminController.users)
 Router.get("/admin/services", isLoggedIn, isUserAdmin, adminController.services)
+Router.get("/admin/products", isLoggedIn, isUserAdmin, adminController.products)
 
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
@@ -51,9 +52,8 @@ Router.post("/register",
     registerController.post
 )
 
-Router.get("/news", (req, res) => {
-    res.render("news")
-})
+const newsController = require("../controllers/news")
+Router.get("/news", newsController.get)
 
 Router.get("/single-news", (req, res) => {
     res.render("single-news")
