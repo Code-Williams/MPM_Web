@@ -104,10 +104,17 @@
 
           <li class="nav-item <%= (active && active == "products") ? "menu-open" : "" %>">
             <a href="/admin/products" class="nav-link <%= (active && active == "products") ? "active" : "" %>">
-              <i class="nav-icon fas fa-product-hunt"></i>
+              <i class="nav-icon fas fa-shopping-cart"></i>
               <p style="text-align: right;">کالاها</p>
             </a>
           </li>
+
+          <li class="nav-item <%= (active && active == "settings") ? "menu-open" : "" %>">
+            <a href="/admin/settings" class="nav-link <%= (active && active == "settings") ? "active" : "" %>">
+              <i class="nav-icon fas fa-cog"></i>
+              <p style="text-align: right;">تنظیمات</p>
+            </a>
+          </li>          
 
         </ul>
       </nav>
