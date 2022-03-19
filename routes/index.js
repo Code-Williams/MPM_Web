@@ -23,6 +23,8 @@ Router.get("/admin/tickets", isLoggedIn, isUserAdmin, adminController.tickets)
 Router.get("/admin/users", isLoggedIn, isUserAdmin, adminController.users)
 Router.get("/admin/services", isLoggedIn, isUserAdmin, adminController.services)
 Router.get("/admin/products", isLoggedIn, isUserAdmin, adminController.products)
+Router.get("/admin/settings", isLoggedIn, isUserAdmin, adminController.settings)
+Router.post("/admin/settings", isLoggedIn, isUserAdmin, adminController.settingsPost)
 
 const HomeController = require("../controllers/homePage")
 Router.get("/", HomeController)
