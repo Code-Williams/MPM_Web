@@ -175,6 +175,7 @@
     <!-- cart banner section -->
     <% let display = "block" %>
     <% if(offers == undefined) display = "none" %>
+    <% if(!isShopAv) display = "none" %>
 
     <section class="cart-banner pt-100 pb-100" style="display : <%=display%>">
       <div class="container">
@@ -288,7 +289,7 @@
 
     <!-- shop banner -->
     <% const monthlyOffer = offers.find(x => x.name == "monthly") %>
-    <% if(monthlyOffer){ %>
+    <% if(monthlyOffer && isShopAv){ %>
       <section class="shop-banner">
         <div class="container">
           <h3>
