@@ -5,6 +5,7 @@ const Point = require("../models/Point")
 const Service = require("../models/Services")
 const Ticket = require("../models/Ticket")
 const convert = require("../utils/convert")
+const Setting = require("../models/Setting")
 
 const mainPage = async (req, res) => {
     const users = await User.findAll({
@@ -106,10 +107,42 @@ const products = async (req, res) => {
     })
 } 
 
+const settings = async (req, res) => {
+    const products = await Product.findAll()
+    const ticketCount = await Ticket.count()
+    const settings = await Setting.findAll()
+
+    res.render("admin/settings", {
+        user : req.user,
+        active : "settings",
+        flash : req.flash(),
+        products,
+        ticketCount,
+        settings
+    })
+}
+
+const settingsPost = async (req, res) => {
+    const findShop = await Setting.findOne({
+        where : {
+            name : "shop"
+        }
+    })
+
+    if(findShop.value !== req.body.shop){
+        findShop.update({value : req.body.shop})
+        req.flash("success", "با موفقیت فروشگاه آپدیت شد")
+    }
+
+    res.redirect("/admin/settings")
+}
+
 module.exports = {
     mainPage,
     tickets,
     users,
     services,
-    products
+    products,
+    settings,
+    settingsPost
 }

@@ -3,10 +3,18 @@ const Products = require("../models/Products");
 const User = require("../models/User")
 const Order = require("../models/Order")
 const convert = require("../utils/convert")
+const Setting = require("../models/Setting")
 
 const all = async (req, res) => {
     const about = await aboutMain.findAll();
     const products = await Products.findAll();
+    let isShopAv = await Setting.findOne({
+        where :{
+            name : "shop"
+        }
+    })
+    isShopAv = isShopAv.value == "on"
+
     let userOrders = [];
     if(req.user){
         userOrders = await Order.findAll({
@@ -16,25 +24,47 @@ const all = async (req, res) => {
         })
     }
 
-    res.render("shop/shop", {
-        about, 
-        products,
-        userOrders,
-        convert,
-        user : req.user
-    })
+
+    if(isShopAv){
+        res.render("shop/shop", {
+            about, 
+            products,
+            userOrders,
+            convert,
+            user : req.user
+        })
+    }else{
+        res.render("errors/404", {
+            user : req.user,
+            about,
+            flash : req.flash()
+        })
+    }
 }
 
 const singleGet = async (req, res) => {
     const about = await aboutMain.findAll()
     const product = await Products.findByPk(req.params.id)
+    const isShopAv = await Setting.findOne({
+        where :{
+            name : "shop"
+        }
+    }).value == "on"
 
-    res.render("shop/single-product", {
-        about, 
-        product,
-        convert,
-        user : req.user
-    })
+    if(isShopAv){
+        res.render("shop/single-product", {
+            about, 
+            product,
+            convert,
+            user : req.user
+        })
+    }else{
+        res.render("errors/404", {
+            user : req.user,
+            flash : req.flash(),
+            about
+        })
+    }
 }
 
 const singlePost = async(req, res) => {
